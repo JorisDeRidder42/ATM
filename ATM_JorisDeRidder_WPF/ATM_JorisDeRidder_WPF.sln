@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM_JorisDeRidder_WPF", "ATM_JorisDeRidder_WPF.csproj", "{DA76DFA1-935F-48EA-85C7-F3295D7866D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM_JorisDeRidder_DAL", "..\ATM_JorisDeRidder_DAL\ATM_JorisDeRidder_DAL.csproj", "{9ADEF1BC-BCD0-46B7-810C-0171FE84345A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA76DFA1-935F-48EA-85C7-F3295D7866D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA76DFA1-935F-48EA-85C7-F3295D7866D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA76DFA1-935F-48EA-85C7-F3295D7866D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA76DFA1-935F-48EA-85C7-F3295D7866D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ADEF1BC-BCD0-46B7-810C-0171FE84345A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ADEF1BC-BCD0-46B7-810C-0171FE84345A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ADEF1BC-BCD0-46B7-810C-0171FE84345A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ADEF1BC-BCD0-46B7-810C-0171FE84345A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7702DA2-5299-4BA8-809A-AFD918C0062A}
+	EndGlobalSection
+EndGlobal

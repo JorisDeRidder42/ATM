@@ -1,0 +1,16 @@
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\ATM_JorisDeRidder_DAL.dll.config
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\ATM_JorisDeRidder_DAL.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\ATM_JorisDeRidder_DAL.pdb
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\EntityFramework.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignColors.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\EntityFramework.xml
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignColors.pdb
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CoreCompileInputs.cache
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CopyComplete
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.pdb

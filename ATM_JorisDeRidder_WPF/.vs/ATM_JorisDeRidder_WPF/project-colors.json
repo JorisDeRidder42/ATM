@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "da76dfa1-935f-48ea-85c7-f3295d7866d3": {
+      "ProjectGuid": "da76dfa1-935f-48ea-85c7-f3295d7866d3",
+      "DisplayName": "ATM_JorisDeRidder_WPF",
+      "ColorIndex": 0
+    },
+    "9adef1bc-bcd0-46b7-810c-0171fe84345a": {
+      "ProjectGuid": "9adef1bc-bcd0-46b7-810c-0171fe84345a",
+      "DisplayName": "ATM_JorisDeRidder_DAL",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

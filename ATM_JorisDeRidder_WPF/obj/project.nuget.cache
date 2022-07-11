@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+1NsEi3JM1lKDppKDwRj9TAeEQ2GFcZ8K4vcASOaFQZekSmgbEs8H4dV7MoqxG/wDRdI7kvi5w6RxGBIbGdC4A==",
+  "dgSpecHash": "Z7KrjhSp3NF70Pv5wDN40U/kNsrv2zJLYyd2osPlgSL8fdcSChtussJxrEFHGPHF8n5l/NcytVbfOwBfMx6I3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM_JorisDeRidder_WPF\\ATM_JorisDeRidder_WPF.csproj",
+  "projectFilePath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_WPF\\ATM_JorisDeRidder_WPF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joris\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\joris\\.nuget\\packages\\fody\\6.6.3\\fody.6.6.3.nupkg.sha512",

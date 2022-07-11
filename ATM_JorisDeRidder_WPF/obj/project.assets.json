@@ -1189,11 +1189,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM_JorisDeRidder_WPF\\ATM_JorisDeRidder_WPF.csproj",
+      "projectUniqueName": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_WPF\\ATM_JorisDeRidder_WPF.csproj",
       "projectName": "ATM_JorisDeRidder_WPF",
-      "projectPath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM_JorisDeRidder_WPF\\ATM_JorisDeRidder_WPF.csproj",
+      "projectPath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_WPF\\ATM_JorisDeRidder_WPF.csproj",
       "packagesPath": "C:\\Users\\joris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM_JorisDeRidder_WPF\\obj\\",
+      "outputPath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_WPF\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joris\\AppData\\Roaming\\NuGet\\NuGet.Config",

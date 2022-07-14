@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
         mc:Ignorable="d"
-        Title="HomeView" Height="450" Width="800">
+        Title="HomeView" Height="600" Width="800">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -80,7 +80,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Image Source="../Images/Ibank.png" Margin="30" Grid.Row="0" Grid.Column="0" />
+        <Image Source="../Images/Ibank.png" Margin="30" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <StackPanel  Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1">
             <Label Foreground="#fff" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">Welcome to Ibank, the virtual bank</Label>
             <Label Foreground="#fff" FontSize="20" FontWeight="Regular" HorizontalAlignment="Center" VerticalAlignment="Center">To acces all services, please insert your card</Label>
@@ -89,7 +89,7 @@
             <Label Foreground="#fff" FontSize="15" HorizontalAlignment="Right">Support number</Label>
             <Label Foreground="#4FC5FF" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right">18543</Label>
         </StackPanel>
-        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnInloggen" Width="80" Height="50" Grid.Column="3" Grid.Row="2" Margin="20" Background="White" Foreground="#111C26" BorderBrush="Transparent">Log in</Button>
-        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnRegistreren" Width="80" Height="50" Grid.Column="2" Grid.Row="2" Margin="20" Background="Transparent" Foreground="#fff" BorderBrush="Transparent">Register</Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnInloggen" Width="80" Height="50" Grid.Column="3" Grid.Row="2" Margin="20" Background="White" Foreground="#111C26" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Log in</Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnRegistreren" Width="80" Height="50" Grid.Column="2" Grid.Row="2" Margin="20" Background="Transparent" Foreground="#fff" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Register">Register</Button>
     </Grid>
 </Window>

@@ -18,7 +18,24 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public override void Execute(object parameter)
         {
+            switch (parameter.ToString())
+            {
+                case "Register": OpenRegisterPage(); break;
+                case "Login": OpenLoginPage(); break;
+            }
+        }
+
+        private void OpenLoginPage()
+        {
             throw new NotImplementedException();
+        }
+
+        private void OpenRegisterPage()
+        {
+            RegisterViewModel registerViewModel = new RegisterViewModel();
+            View.RegisterView rview = new View.RegisterView();
+            rview.DataContext = registerViewModel;
+            rview.Show();
         }
     }
 }

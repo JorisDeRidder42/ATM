@@ -27,7 +27,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void OpenLoginPage()
         {
-            throw new NotImplementedException();
+            LoginViewModel loginViewModel = new LoginViewModel();
+            View.LoginView loginview = new View.LoginView();
+            loginview.DataContext = loginViewModel;
+            loginview.Show();
         }
 
         private void OpenRegisterPage()

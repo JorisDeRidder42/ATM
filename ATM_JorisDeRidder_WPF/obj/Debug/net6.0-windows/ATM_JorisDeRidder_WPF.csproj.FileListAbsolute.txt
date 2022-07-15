@@ -71,3 +71,5 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\App.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\LoginView.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\LoginView.baml
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\LanguageView.g.cs
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\LanguageView.baml

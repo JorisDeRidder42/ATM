@@ -23,9 +23,5 @@ namespace ATM_JorisDeRidder_WPF.View
         {
             InitializeComponent();
         }
-
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-        }
     }
 }

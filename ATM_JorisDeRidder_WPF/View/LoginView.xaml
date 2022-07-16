@@ -51,7 +51,7 @@
             <StackPanel>
                 <StackPanel Margin="0 20" Orientation="Horizontal">
                     <TextBlock x:Name="txtMember" VerticalAlignment="Center" Foreground="#fff" Text="Not yet member? " />
-                    <Button x:Name="txtSignup"  Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Register">Signup now</Button>
+                    <Button x:Name="txtSignup" Style="{DynamicResource RoundedButtonStyle}"  Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Register">Signup now</Button>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

@@ -26,10 +26,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void openHomePage()
         {
-            LanguageViewModel langViewModel = new LanguageViewModel();
-            View.LanguageView langView = new View.LanguageView();
-            langView.DataContext = langViewModel;
-            langView.Show();
+            AccountViewModel accountViewModel = new AccountViewModel();
+            View.AccountView aview = new View.AccountView();
+            aview.DataContext = accountViewModel;
+            aview.Show();
         }
 
         private void OpenRegisterPage()

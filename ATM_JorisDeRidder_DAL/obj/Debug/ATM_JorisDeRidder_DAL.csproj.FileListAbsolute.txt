@@ -26,7 +26,6 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\Ent
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignColors.pdb
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.AssemblyReference.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CoreCompileInputs.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.Fody.CopyLocal.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.Fody.RuntimeCopyLocal.cache

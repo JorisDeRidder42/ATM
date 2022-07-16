@@ -7,7 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="userControl\Header.xaml.cs">
+    <Compile Update="userControls\Footer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="userControls\Header.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AccountView.xaml.cs">
@@ -24,7 +27,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="userControl\Header.xaml">
+    <Page Update="userControls\Footer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userControls\Header.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AccountView.xaml">

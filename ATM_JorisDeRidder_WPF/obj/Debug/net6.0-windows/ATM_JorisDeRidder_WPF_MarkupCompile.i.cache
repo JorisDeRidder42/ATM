@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\App.xaml
-5389726197
+6-980221489
 
-14-945282756
+15-869999621
 2001746132934
-userControl\Header.xaml;View\AccountView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\RegisterView.xaml;
+userControls\Footer.xaml;userControls\Header.xaml;View\AccountView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\RegisterView.xaml;
 
-True
+False
 

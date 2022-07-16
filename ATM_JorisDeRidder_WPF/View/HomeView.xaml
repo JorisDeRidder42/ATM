@@ -3,8 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View" xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.UserControl" xmlns:userControl1="clr-namespace:ATM_JorisDeRidder_WPF.userControl"
+        xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Foreground="White"
+        FontFamily="poppins"
+        VerticalAlignment="Center"
         Title="HomeView" Height="600" Width="800">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -60,6 +68,9 @@
             </Setter>
         </Style>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/background.jpg" Opacity="0.5" />
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -70,17 +81,20 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <userControl:Header />
-        <StackPanel  Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1">
-            <Label Foreground="#fff" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">Welcome to Ibank, the virtual bank</Label>
-            <Label Foreground="#fff" FontSize="20" FontWeight="Regular" HorizontalAlignment="Center" VerticalAlignment="Center">To acces all services, please insert your card</Label>
+        <userControl:Header Grid.ColumnSpan="6" Grid.Row="0" />
+
+        <StackPanel  Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Foreground="#fff" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center">Welcome to Ibank, the virtual bank</Label>
+            <Label Foreground="#fff" FontSize="15" FontWeight="Regular" HorizontalAlignment="Center">To acces all services, please insert your card</Label>
         </StackPanel>
-        <userControl:Footer />
-        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnInloggen" Width="80" Height="50" Grid.Column="3" Grid.Row="2" Margin="20" Background="White" Foreground="#111C26" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Log in</Button>
-        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnRegistreren" Width="80" Height="50" Grid.Column="2" Grid.Row="2" Margin="20" Background="Transparent" Foreground="#fff" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Register">Register</Button>
+        <userControl:Footer Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="2" />
+
+        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnInloggen" Width="80" Height="50" Grid.Column="3" Grid.Row="2" Margin="10" Background="White" Foreground="#111C26" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Log in</Button>
+        <Button Style="{DynamicResource RoundedButtonStyle}" x:Name="btnRegistreren" Width="80" Height="50" Grid.Column="2" Grid.Row="2" Margin="10" Background="Transparent" Foreground="#fff" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Register">Register</Button>
     </Grid>
 </Window>

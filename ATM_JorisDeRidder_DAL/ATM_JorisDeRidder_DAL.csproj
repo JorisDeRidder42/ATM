@@ -61,6 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasisModel\Basisklasse.cs" />
+    <Compile Include="DomainModels\Card.cs" />
+    <Compile Include="DomainModels\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

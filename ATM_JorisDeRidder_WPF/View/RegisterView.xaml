@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -31,37 +32,40 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Image Source="../Images/Ibank.png" Margin="30" Grid.Row="0" Grid.Column="0" />
+        <userControl:Header Grid.ColumnSpan="7" Grid.Row="0" />
         <StackPanel  Grid.ColumnSpan="3" Grid.Row="0" Margin="20" Grid.Column="2">
             <Label Foreground="#fff" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center">Register yourself</Label>
         </StackPanel>
-        <StackPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Label Foreground="#fff" FontSize="15" HorizontalAlignment="Right">Support number</Label>
-            <Label Foreground="#4FC5FF" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right">18543</Label>
-        </StackPanel>
-        <StackPanel Margin="10" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
+        <userControl:Footer Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="6" />
+
+        <StackPanel  Margin="5" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
             <Label x:Name="lblName" Foreground="White">Name</Label>
             <TextBox x:Name="txtName" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" />
         </StackPanel>
-        <StackPanel Margin="10" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1">
+        <StackPanel  Margin="5" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3">
+            <Label x:Name="lblPassword" Foreground="White">Password</Label>
+            <PasswordBox x:Name="txbPassword" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" Foreground="Black" Background="White" />
+        </StackPanel>
+        <StackPanel  Margin="5" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1">
             <Label x:Name="lblGender" Foreground="White">Gender</Label>
             <TextBox x:Name="txtGender" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" />
         </StackPanel>
-        <StackPanel Margin="10" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
+        <StackPanel  Margin="5" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2">
             <Label x:Name="lblZip" Foreground="White">Zipcode</Label>
             <TextBox x:Name="txtZip" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" />
         </StackPanel>
-        <StackPanel Margin="10" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2">
+        <StackPanel  Margin="5" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2">
             <Label x:Name="lblStreet" Foreground="White">Street</Label>
-            <TextBox x:Name="txtStreet" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" />
+            <TextBox x:Name="txtStreet" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" Width="215" />
         </StackPanel>
-        <StackPanel Margin="10" Grid.Row="4" Grid.Column="4">
+        <StackPanel Margin="5" Grid.Row="5" Grid.Column="4">
             <Label x:Name="lblNumber" Foreground="White">Number</Label>
             <TextBox x:Name="txtNumber" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" />
         </StackPanel>
-        <Button x:Name="btnRegister" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Height="50" Foreground="#fff">Register</Button>
-        <Button x:Name="txtAccount" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Already have an account</Button>
+        <Button x:Name="btnRegister" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" Height="52" Foreground="#fff" VerticalAlignment="Bottom" Margin="0, 15">Register</Button>
+        <Button x:Name="txtAccount" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Already have an account</Button>
     </Grid>
 </Window>

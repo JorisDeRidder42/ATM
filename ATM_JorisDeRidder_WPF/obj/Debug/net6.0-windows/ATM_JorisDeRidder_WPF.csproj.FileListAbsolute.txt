@@ -48,6 +48,7 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.csproj.AssemblyReference.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\userControls\Footer.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\userControls\Header.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\AccountView.g.cs

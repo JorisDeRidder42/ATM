@@ -20,16 +20,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             switch (parameter.ToString())
             {
                 case "Register": OpenRegisterPage(); break;
-                case "Login": openHomePage(); break;
+                case "Login": Login(); break;
             }
         }
 
-        private void openHomePage()
+        private void Login()
         {
-            AccountViewModel accountViewModel = new AccountViewModel();
-            View.AccountView aview = new View.AccountView();
-            aview.DataContext = accountViewModel;
-            aview.Show();
         }
 
         private void OpenRegisterPage()

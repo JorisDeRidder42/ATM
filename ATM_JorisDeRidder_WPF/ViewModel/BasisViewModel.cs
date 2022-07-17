@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public abstract class BasisViewModel : IDataErrorInfo, INotifyPropertyChanged, ICommand, IDisposable
+    public abstract class BasisViewModel : IDataErrorInfo, INotifyPropertyChanged, ICommand
     {
         #region ICommand
 
@@ -58,19 +58,5 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         }
 
         #endregion IDataErrorInfo
-
-        #region hulpmethodes
-
-        public bool IsGeldig()
-        {
-            return string.IsNullOrWhiteSpace(Error);
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion hulpmethodes
     }
 }

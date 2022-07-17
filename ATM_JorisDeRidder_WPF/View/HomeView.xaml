@@ -6,11 +6,10 @@
         xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
         xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
         mc:Ignorable="d"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.Foreground="#ffffff"
         TextElement.FontWeight="Regular"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Foreground="White"
         FontFamily="poppins"
         VerticalAlignment="Center"
         Title="HomeView" Height="600" Width="800">

@@ -26,6 +26,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void Login()
         {
+            AccountViewModel accountViewModel = new AccountViewModel();
+            View.AccountView accountView = new View.AccountView();
+            accountView.DataContext = accountViewModel;
+            accountView.Show();
         }
 
         private void OpenRegisterPage()

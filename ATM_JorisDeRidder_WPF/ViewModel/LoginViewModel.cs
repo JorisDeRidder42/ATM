@@ -10,6 +10,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         public override string this[string columnName] => throw new NotImplementedException();
 
+        public string Foutmelding;
+
         public override bool CanExecute(object parameter)
         {
             return true;
@@ -26,10 +28,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void Login()
         {
-            AccountViewModel accountViewModel = new AccountViewModel();
-            View.AccountView accountView = new View.AccountView();
-            accountView.DataContext = accountViewModel;
-            accountView.Show();
+            Foutmelding = "Gelieve een wachtwoord in te vullen";
         }
 
         private void OpenRegisterPage()

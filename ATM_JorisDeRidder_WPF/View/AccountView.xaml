@@ -29,16 +29,12 @@
             <RowDefinition />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Image Source="../Images/Ibank.png" Margin="30" Grid.Row="0" Grid.Column="0" />
-        <StackPanel  Grid.ColumnSpan="3" Grid.Row="0" Margin="20" Grid.Column="1">
-            <Label Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Please choose your account</Label>
-        </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <Label Foreground="#fff" FontSize="15" HorizontalAlignment="Right">Support number</Label>
-            <Label Foreground="#4FC5FF" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right">18543</Label>
+        <userControl:Header Grid.Row="0" Grid.ColumnSpan="5" />
+        <userControl:Footer Grid.Row="3" Grid.ColumnSpan="5" />
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+            <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Please choose your account</Label>
         </StackPanel>
-
         <Button x:Name="Account1" Grid.Row="1" Grid.Column="1" Width="auto" Height="150" VerticalAlignment="Center" Margin="10">
             <Label x:Name="lblAccount1" FontSize="18" Foreground="#fff">923,42 €</Label>
         </Button>

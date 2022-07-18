@@ -65,7 +65,11 @@
             <Label x:Name="lblNumber" Foreground="White">Number</Label>
             <TextBox x:Name="txtNumber" Style="{StaticResource MaterialDesignOutlinedTextBox}" Foreground="Black" Background="White" />
         </StackPanel>
-        <Button x:Name="btnRegister" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" Height="52" Foreground="#fff" VerticalAlignment="Bottom" Margin="0, 15">Register</Button>
-        <Button x:Name="txtAccount" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Already have an account</Button>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="2">
+            <Button x:Name="btnRegister" Height="52" Foreground="#fff" VerticalAlignment="Bottom" Margin="0, 15">Register</Button>
+            <Button x:Name="txtAccount" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Login">Already have an account</Button>
+            <Label x:Name="lblFoutmelding" Foreground="Red">Test</Label>
+        </StackPanel>
     </Grid>
 </Window>

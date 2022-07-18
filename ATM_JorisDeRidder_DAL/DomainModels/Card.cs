@@ -19,5 +19,8 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public string CardPassword { get; set; }
 
         public int FailedLogin { get; set; }
+
+        public ICollection<Account> Accounts { get; set; }
+        public ICollection<Log> Logs { get; set; }
     }
 }

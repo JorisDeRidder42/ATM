@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
     public class LoginViewModel : BasisViewModel
     {
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public override string this[string columnName] => throw new NotImplementedException();
 
-        public string Foutmelding;
+        public Client Client { get; set; }
+        public string ClientName { get; set; }
+        public string Password { get; set; }
+
+        public string? foutmelding;
 
         public override bool CanExecute(object parameter)
         {
@@ -28,7 +37,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void Login()
         {
-            Foutmelding = "Gelieve een wachtwoord in te vullen";
+            AccountViewModel accountViewModel = new AccountViewModel();
+            View.AccountView acountView = new View.AccountView();
+            acountView.DataContext = acountView;
+            acountView.Show();
+            foutmelding = "Er is geen account gevonden met deze naam of passwoord";
         }
 
         private void OpenRegisterPage()

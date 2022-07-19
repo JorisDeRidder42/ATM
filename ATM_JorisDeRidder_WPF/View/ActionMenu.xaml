@@ -32,17 +32,19 @@
         <userControl:Header Grid.Row="0" Grid.ColumnSpan="5" />
         <userControl:Footer Grid.Row="3" Grid.ColumnSpan="5" />
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-            <Label x:Name="lblName" Foreground="#fff" FontSize="15" HorizontalAlignment="Center">Welcome *name*</Label>
-            <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">What do you want to do today?</Label>
+            <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select your transaction please</Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="lblBalance" Foreground="#fff" FontSize="15" FontWeight="Regular">Balance:</Label>
+                <Label x:Name="lblnumber" Foreground="#fff" FontSize="15" FontWeight="Regular"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="lblAccount" Foreground="#fff" FontSize="15" FontWeight="Regular">Account:</Label>
+                <Label x:Name="lblAname" Foreground="#fff" FontSize="15" FontWeight="Regular"></Label>
+            </StackPanel>
         </StackPanel>
-        <Button x:Name="Withdraw" Grid.Row="1" Grid.Column="1" Width="auto" Height="150" VerticalAlignment="Center" Margin="10">
-            <Label x:Name="lblWithdraw" FontSize="18" Foreground="#fff">Withdraw</Label>
-        </Button>
-        <Button x:Name="Deposit" Grid.Row="1" Grid.Column="2" Width="auto" Height="150" Margin="10">
-            <Label x:Name="lblDeposit" FontSize="18" Foreground="#fff">Deposit</Label>
-        </Button>
-        <Button x:Name="CheckLogs" Grid.Row="1" Grid.Column="3" Width="auto" Height="150" VerticalAlignment="Center" Margin="10">
-            <Label x:Name="lblCheckLogs" FontSize="18" Foreground="#fff">Check logs</Label>
-        </Button>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Button>Deposit</Button>
+            <Button>Fast cash</Button>
+        </StackPanel>
     </Grid>
 </Window>

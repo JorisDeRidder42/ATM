@@ -28,4 +28,8 @@
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ATM_JorisDeRidder_DAL\ATM_JorisDeRidder_DAL.csproj" />
+  </ItemGroup>
+
 </Project>

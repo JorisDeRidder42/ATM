@@ -33,10 +33,10 @@
         <userControl:Header Grid.Row="0" Grid.ColumnSpan="5" />
         <userControl:Footer Grid.Row="3" Grid.ColumnSpan="5" />
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-            <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Please choose your account</Label>
+            <Label x:Name="lblAction" Foreground="#fff" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center">Please choose your account</Label>
         </StackPanel>
         <Button x:Name="Account1" Grid.Row="1" Grid.Column="1" Width="auto" Height="150" VerticalAlignment="Center" Margin="10">
-            <Label x:Name="lblAccount1" FontSize="18" Foreground="#fff">923,42 €</Label>
+            <Label x:Name="lblAccount1"  FontSize="18" Foreground="#fff">923,42 €</Label>
         </Button>
         <Button x:Name="Account2" Grid.Row="1" Grid.Column="2" Width="auto" Height="150" Margin="10">
             <Label x:Name="lblAccount2" FontSize="18" Foreground="#fff">3884,34 €</Label>

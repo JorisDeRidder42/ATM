@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "ATM_JorisDeRidder_WPF/1.0.0": {
         "dependencies": {
+          "ATM_JorisDeRidder_DAL": "1.0.0",
           "EntityFramework": "6.4.4",
           "Fody": "6.6.3",
           "MaterialDesignColors": "2.0.6",
@@ -167,6 +168,11 @@
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
           "System.Drawing.Common": "4.7.0"
+        }
+      },
+      "ATM_JorisDeRidder_DAL/1.0.0": {
+        "runtime": {
+          "ATM_JorisDeRidder_DAL.dll": {}
         }
       }
     }
@@ -337,6 +343,11 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "ATM_JorisDeRidder_DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

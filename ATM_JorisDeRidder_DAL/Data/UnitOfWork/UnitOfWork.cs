@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private IRepository<Client> _clientRepo;
         private IRepository<Account> _accountRepo;
@@ -16,6 +16,7 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
         private IRepository<Log> _logRepo;
         private IRepository<Transaction> _transactionRepo;
         private IRepository<ClientAccount> _clientAccountRepo;
+        public IRepository<Log> LogRepo => throw new NotImplementedException();
 
         public UnitOfWork(ATM_JorisDeRidderEntities atm_JorisDeRidderEntities)
         {

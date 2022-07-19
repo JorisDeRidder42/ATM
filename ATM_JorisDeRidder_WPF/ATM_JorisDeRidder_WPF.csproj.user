@@ -10,6 +10,9 @@
     <Compile Update="userControls\Footer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="userControls\FooterBack.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="userControls\Header.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="userControls\Footer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="userControls\FooterBack.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="userControls\Header.xaml">

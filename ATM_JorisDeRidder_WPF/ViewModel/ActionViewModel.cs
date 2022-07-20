@@ -21,6 +21,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             {
                 case "Logout": Logout(); break;
                 case "Deposit": Deposit(); break;
+                case "Withdraw": Withdraw(); break;
             }
         }
 
@@ -30,6 +31,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.DepositView depositView = new View.DepositView();
             depositView.DataContext = depositViewModel;
             depositView.Show();
+        }
+
+        private void Withdraw()
+        {
+            WithdrawViewModel withdrawViewModel = new WithdrawViewModel();
+            View.WithdrawView withdrawView = new View.WithdrawView();
+            withdrawView.DataContext = withdrawViewModel;
+            withdrawView.Show();
         }
 
         private void Logout()

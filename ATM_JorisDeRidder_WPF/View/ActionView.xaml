@@ -46,7 +46,7 @@
             <Button Margin="10">Change pin</Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
-            <Button Margin="10">Withdraw</Button>
+            <Button Margin="10" Command="{Binding}" CommandParameter="Withdraw">Withdraw</Button>
             <Button Margin="10">Logs</Button>
             <Button Margin="10">Balance</Button>
         </StackPanel>

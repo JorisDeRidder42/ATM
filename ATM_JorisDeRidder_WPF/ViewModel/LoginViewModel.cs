@@ -15,9 +15,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public override string this[string columnName] => throw new NotImplementedException();
 
-        public Client Client { get; set; }
-        public string ClientName { get; set; }
-        public string Password { get; set; }
+        public ObservableCollection<Client> Klanten { get; set; }
 
         public string? foutmelding;
 
@@ -37,11 +35,15 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void Login()
         {
-            AccountViewModel accountViewModel = new AccountViewModel();
-            View.AccountView acountView = new View.AccountView();
-            acountView.DataContext = acountView;
-            acountView.Show();
-            foutmelding = "Er is geen account gevonden met deze naam of passwoord";
+            //Klanten = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientName));
+            //if (Klanten != null)
+            //{
+            ActionViewModel actionViewModel = new ActionViewModel();
+            View.ActionView actionView = new View.ActionView();
+            actionView.DataContext = actionViewModel;
+            actionView.Show();
+            //}
+            foutmelding = "Er is geen account gevonden met deze naam en of passwoord";
         }
 
         private void OpenRegisterPage()

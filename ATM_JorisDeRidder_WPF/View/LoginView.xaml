@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Foreground="White"
         Background="#111C26"
-        FontFamily="poppins"
+        FontFamily="Poppins"
         VerticalAlignment="Center"
         Title="LoginView" Height="600" Width="800">
     <Grid>

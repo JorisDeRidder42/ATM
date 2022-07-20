@@ -16,10 +16,16 @@
     <Compile Update="userControls\Header.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\AccountView.xaml.cs">
+    <Compile Update="View\ActionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ActionMenu.xaml.cs">
+    <Compile Update="View\BalanceView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CashView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\DepositView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\HomeView.xaml.cs">
@@ -29,6 +35,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\RegisterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\WithdrawView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -42,10 +51,16 @@
     <Page Update="userControls\Header.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\AccountView.xaml">
+    <Page Update="View\ActionView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\ActionMenu.xaml">
+    <Page Update="View\BalanceView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CashView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DepositView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\HomeView.xaml">
@@ -55,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\RegisterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\WithdrawView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

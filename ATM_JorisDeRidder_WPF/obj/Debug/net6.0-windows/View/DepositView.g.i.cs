@@ -78,7 +78,7 @@ namespace ATM_JorisDeRidder_WPF.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ATM_JorisDeRidder_WPF;V1.0.0.0;component/view/depositview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ATM_JorisDeRidder_WPF;component/view/depositview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\DepositView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

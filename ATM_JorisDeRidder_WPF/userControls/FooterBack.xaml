@@ -17,5 +17,6 @@
             <Label Foreground="#4FC5FF" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right">18543</Label>
         </StackPanel>
         <Button Grid.Column="1" FontWeight="Bold" Background="Transparent" Foreground="White" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Back">Back</Button>
+        <Border Grid.ColumnSpan="3" Background="#4FC5FF" Height="8" VerticalAlignment="Bottom"></Border>
     </Grid>
 </UserControl>

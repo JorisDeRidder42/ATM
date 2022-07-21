@@ -25,7 +25,16 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "100": Withdraw100(); break;
                 case "200": Withdraw200(); break;
                 case "500": Withdraw500(); break;
+                case "Back": Back(); break;
             }
+        }
+
+        private void Back()
+        {
+            ActionViewModel actionViewModel = new ActionViewModel();
+            View.ActionView actionView = new View.ActionView();
+            actionView.DataContext = actionViewModel;
+            actionView.Show();
         }
 
         private void Withdraw500()

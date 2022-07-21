@@ -29,6 +29,8 @@
             <RowDefinition />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <userControl:Footer Grid.Row="3" Grid.ColumnSpan="5" />
+        <userControl:Header Grid.Row="0" Grid.ColumnSpan="4" />
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select your transaction please</Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -42,14 +44,15 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
             <Button Margin="10" Command="{Binding}" CommandParameter="Deposit">Deposit</Button>
-            <Button Margin="10">Fast cash</Button>
-            <Button Margin="10">Change pin</Button>
+            <Button Margin="10" Command="{Binding}" CommandParameter="Cash">Fast cash</Button>
+            <Button Margin="10" Command="{Binding}" CommandParameter="Pin">Change pin</Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
             <Button Margin="10" Command="{Binding}" CommandParameter="Withdraw">Withdraw</Button>
-            <Button Margin="10">Logs</Button>
-            <Button Margin="10">Balance</Button>
+            <Button Margin="10" Command="{Binding}" CommandParameter="Logs">Logs</Button>
+            <Button Margin="10" Command="{Binding}" CommandParameter="Balance">Balance</Button>
         </StackPanel>
-        <Button Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontWeight="Bold" Background="Transparent" Foreground="White" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Logout">Logout</Button>
+        <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontWeight="Bold" Background="Transparent" Foreground="White" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Logout" VerticalAlignment="Center">Logout</Button>
+        <Border Grid.ColumnSpan="4" Grid.Row="3" Background="#4FC5FF" Height="8" VerticalAlignment="Bottom"></Border>
     </Grid>
 </Window>

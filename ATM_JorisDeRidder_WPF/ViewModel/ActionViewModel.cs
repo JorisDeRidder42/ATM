@@ -22,7 +22,41 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Logout": Logout(); break;
                 case "Deposit": Deposit(); break;
                 case "Withdraw": Withdraw(); break;
+                case "Balance": Balance(); break;
+                case "Cash": Cash(); break;
+                case "Logs": Logs(); break;
+                case "Pin": Pin(); break;
             }
+        }
+
+        private void Pin()
+        {
+            throw new NotImplementedException();
+            //check if user is admin else messagebox
+        }
+
+        private void Logs()
+        {
+            LogViewModel logViewModel = new LogViewModel();
+            View.LogView logView = new View.LogView();
+            logView.DataContext = logViewModel;
+            logView.Show();
+        }
+
+        private void Cash()
+        {
+            CashViewModel cashViewModel = new CashViewModel();
+            View.CashView cashView = new View.CashView();
+            cashView.DataContext = cashViewModel;
+            cashView.Show();
+        }
+
+        private void Balance()
+        {
+            BalanceViewModel balanceViewModel = new BalanceViewModel();
+            View.BalanceView balanceView = new View.BalanceView();
+            balanceView.DataContext = balanceViewModel;
+            balanceView.Show();
         }
 
         private void Deposit()

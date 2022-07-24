@@ -1,14 +1,21 @@
-﻿using System;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
     public class ActionViewModel : BasisViewModel
     {
-        public override string this[string columnName] => throw new NotImplementedException();
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+        public override string this[string columnName] => "";
+        public ObservableCollection<Client> Klanten { get; set; }
 
         public override bool CanExecute(object parameter)
         {
@@ -31,8 +38,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void Pin()
         {
-            throw new NotImplementedException();
-            //check if user is admin else messagebox
+            Klanten = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin));
+            if (Klanten != null)
+            {
+                MessageBox.Show("test");
+            }
         }
 
         private void Logs()

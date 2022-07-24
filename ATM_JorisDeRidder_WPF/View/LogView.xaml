@@ -33,10 +33,11 @@
         <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="3" />
 
         <DataGrid x:Name="datagridLogs" AutoGenerateColumns="True" Grid.Row="1" Grid.Column="0"
-                  ItemsSource="{Binding ValidatesOnDataErrors=True}"
+                  ItemsSource="{Binding Logs}"
                   IsReadOnly="true"
                   Grid.ColumnSpan="4" Margin="5">
             <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Logs}" Header="Logs"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -13,11 +13,17 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class LoginViewModel : BasisViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public override string this[string columnName] => throw new NotImplementedException();
 
         public ObservableCollection<Client> Klanten { get; set; }
 
+        public override string this[string columnName] => "";
+
         public string? foutmelding;
+
+        public LoginViewModel()
+        {
+            Klanten = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientName));
+        }
 
         public override bool CanExecute(object parameter)
         {

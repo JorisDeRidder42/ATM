@@ -13,11 +13,20 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public override bool CanExecute(object parameter)
         {
+            //returnwaarde true -> methode mag uitgevoerd worden
+            //returnwaarde false -> methode mag niet uitgevoerd worden
+            switch (parameter.ToString())
+            {
+                case "Register": return true;
+                case "Login": return true;
+            }
             return true;
         }
 
         public override void Execute(object parameter)
         {
+            //Via parameter kom je te weten op welke knop er gedrukt is,
+            //instelling via CommandParameter in xaml
             switch (parameter.ToString())
             {
                 case "Register": OpenRegisterPage(); break;

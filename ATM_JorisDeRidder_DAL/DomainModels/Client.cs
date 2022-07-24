@@ -35,6 +35,9 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public DateTime BirthDate { get; set; }
         public DateTime ContactAdded { get; set; }
 
+        [Required]
+        public bool IsAdmin { get; set; }
+
         public ICollection<ClientAccount> ClientAccounts { get; set; }
     }
 }

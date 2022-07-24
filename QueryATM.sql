@@ -22,3 +22,6 @@ INSERT INTO dbo.Accounts
 VALUES('BE58 7310 3344 9674', 'Zichtrekening', 2, 1);
 INSERT INTO dbo.Accounts
 VALUES('BE11 7432 5499 1453', 'Spaarrekening', 1, 2);
+
+INSERT INTO dbo.Logs
+VALUES(1500, '2022-07-21')

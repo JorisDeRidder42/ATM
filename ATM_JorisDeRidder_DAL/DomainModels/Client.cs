@@ -32,8 +32,7 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public string Password { get; set; }
 
         public bool IsIngelogd { get; set; }
-        public DateTime BirthDate { get; set; }
-        public DateTime ContactAdded { get; set; }
+        public DateTimeOffset BirthDate { get; set; }
 
         [Required]
         public bool IsAdmin { get; set; }

@@ -13,7 +13,7 @@ namespace ATM_JorisDeRidder_DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202207181250005_InitialCreate"; }
+            get { return "202207241036012_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

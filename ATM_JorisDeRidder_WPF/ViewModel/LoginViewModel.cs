@@ -22,7 +22,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public LoginViewModel()
         {
-            Klanten = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientName));
+            //Klanten = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientName));
         }
 
         public override bool CanExecute(object parameter)

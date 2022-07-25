@@ -16,7 +16,7 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public int Total_Amount { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime dateLog { get; set; }
 
         public Card Card { get; set; }
     }

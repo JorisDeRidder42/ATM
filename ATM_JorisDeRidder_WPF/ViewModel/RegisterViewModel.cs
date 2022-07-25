@@ -20,7 +20,16 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             switch (parameter.ToString())
             {
                 case "Login": openLoginPage(); break;
+                case "Back": goBack(); break;
             }
+        }
+
+        private void goBack()
+        {
+            HomeViewModel homeViewModel = new HomeViewModel();
+            View.HomeView homeView = new View.HomeView();
+            homeView.DataContext = homeViewModel;
+            homeView.Show();
         }
 
         private void openLoginPage()

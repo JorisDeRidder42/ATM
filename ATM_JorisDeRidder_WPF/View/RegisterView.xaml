@@ -33,26 +33,26 @@
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold">Register</Label>
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
             <Label x:Name="lblName" Foreground="White">Name</Label>
-            <TextBox x:Name="txtName" Foreground="Black" Background="White" Padding="10" />
-            <Label x:Name="lblFname" Foreground="White">First name</Label>
-            <TextBox x:Name="txtfName" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtName" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.ClientName}" />
             <Label x:Name="lblPassword" Foreground="White">Password</Label>
-            <PasswordBox x:Name="txtPassword" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtPassword" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Password}" />
+            <Label x:Name="lblCPassword" Foreground="White">Confirm Password</Label>
+            <TextBox x:Name="txtCPassword" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.ConfirmPassword}" />
             <Label x:Name="lblCountry" Foreground="White">Country</Label>
-            <TextBox x:Name="txtcountry" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtcountry" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Country}" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="5">
             <Label x:Name="lblCity" Foreground="White">City</Label>
-            <TextBox x:Name="txtCity" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtCity" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.City}" />
             <Label x:Name="lblStreetNr" Foreground="White">Street</Label>
-            <TextBox x:Name="txtStreetNr" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtStreetNr" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Street}" />
             <Label x:Name="lblBalance" Foreground="White">Balance</Label>
-            <TextBox x:Name="txtBalance" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtBalance" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Balance}" />
             <Label x:Name="lblDob" Foreground="White">Day Of Birth</Label>
-            <DatePicker x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" />
+            <TextBox x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.DateOfBirth}" />
         </StackPanel>
-        <Button x:Name="lblRegister" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,341,0,0" Grid.RowSpan="2" Width="182">Register</Button>
+        <Button x:Name="lblRegister" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,341,0,0" Grid.RowSpan="2" Width="182" Command="{Binding}" CommandParameter="Register">Register</Button>
 
         <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="4" />
     </Grid>

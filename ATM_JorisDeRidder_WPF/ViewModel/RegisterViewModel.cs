@@ -1,14 +1,50 @@
-﻿using System;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class RegisterViewModel : BasisViewModel
+    public class RegisterViewModel : BasisViewModel, IDisposable
     {
-        public override string this[string columnName] => throw new NotImplementedException();
+        public IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+
+        public Client Client { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string HouseNumber { get; set; }
+        public string BirthDate { get; set; }
+        public bool IsAdmin { get; set; }
+        public string ZipCode { get; set; }
+        public string ClientID { get; set; }
+        public string ClientName { get; set; }
+
+        public RegisterViewModel(int? clientID = null)
+        {
+            if (clientID == null)
+            {
+                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+            }
+            else
+            {
+                Client = new Client();
+            }
+        }
+
+        public override string this[string columnName]
+        {
+            get
+            {
+                return "";
+            }
+        }
 
         public override bool CanExecute(object parameter)
         {
@@ -19,25 +55,40 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             switch (parameter.ToString())
             {
-                case "Login": openLoginPage(); break;
-                case "Back": goBack(); break;
+                case "Register": Register(); break;
+                case "Back": GoBack(); break;
             }
         }
 
-        private void goBack()
+        public void Register()
         {
-            HomeViewModel homeViewModel = new HomeViewModel();
-            View.HomeView homeView = new View.HomeView();
-            homeView.DataContext = homeViewModel;
-            homeView.Show();
+            if (ClientID == null)
+            {
+                unitOfWork.ClientRepo.Toevoegen(Client);
+                unitOfWork.Save();
+
+                LoginViewModel lviewModel = new LoginViewModel();
+                View.LoginView lview = new View.LoginView();
+                lview.DataContext = lviewModel;
+                lview.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error! One or more fields aren't correct!");
+            }
         }
 
-        private void openLoginPage()
+        public void GoBack()
         {
-            LoginViewModel loginViewModel = new LoginViewModel();
-            View.LoginView loginView = new View.LoginView();
-            loginView.DataContext = loginViewModel;
-            loginView.Show();
+            LoginViewModel viewModel = new LoginViewModel();
+            View.LoginView view = new View.LoginView();
+            view.DataContext = viewModel;
+            view.Show();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

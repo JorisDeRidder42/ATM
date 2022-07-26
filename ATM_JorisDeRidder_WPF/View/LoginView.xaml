@@ -38,11 +38,11 @@
         <userControl:Header Grid.ColumnSpan="3" Grid.Row="0" />
         <StackPanel Margin="10" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3">
             <Label x:Name="lblName" Foreground="White">Name</Label>
-            <TextBox x:Name="txtName" Foreground="Black" Background="White" Padding="20" />
+            <TextBox Foreground="Black" Background="White" Padding="20" Text="{Binding Client.ClientName}" />
         </StackPanel>
         <StackPanel Margin="10" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
             <Label x:Name="lblPassword" Foreground="White">Password</Label>
-            <PasswordBox x:Name="txbPassword" Foreground="Black" Background="White" Padding="20" />
+            <TextBox Foreground="Black" Background="White" Padding="20" Text="{Binding Client.Password}" />
             <Button x:Name="txtforgot"  Foreground="#4FC5FF" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" >Forgot password?</Button>
             <Label Content="{Binding foutmelding}" Foreground="Red" FontSize="15" />
             <Button x:Name="btnLogin" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Height="50" Command="{Binding}" CommandParameter="Login">Login</Button>

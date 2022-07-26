@@ -73,9 +73,13 @@
     <Compile Include="DomainModels\Client.cs" />
     <Compile Include="DomainModels\ClientAccount.cs" />
     <Compile Include="DomainModels\Log.cs" />
-    <Compile Include="Migrations\202207241036012_InitialCreate.cs" />
-    <Compile Include="Migrations\202207241036012_InitialCreate.designer.cs">
-      <DependentUpon>202207241036012_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202207261046275_InitialCreate.cs" />
+    <Compile Include="Migrations\202207261046275_InitialCreate.designer.cs">
+      <DependentUpon>202207261046275_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207261058334_changedb.cs" />
+    <Compile Include="Migrations\202207261058334_changedb.designer.cs">
+      <DependentUpon>202207261058334_changedb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +89,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202207241036012_InitialCreate.resx">
-      <DependentUpon>202207241036012_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202207261046275_InitialCreate.resx">
+      <DependentUpon>202207261046275_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207261058334_changedb.resx">
+      <DependentUpon>202207261058334_changedb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

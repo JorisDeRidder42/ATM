@@ -31,11 +31,13 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         [Required]
         public string Password { get; set; }
 
-        public bool IsIngelogd { get; set; }
-        public DateTimeOffset BirthDate { get; set; }
+        [Required]
+        public string ConfirmPassword { get; set; }
 
         [Required]
         public bool IsAdmin { get; set; }
+
+        public string BirthDate { get; set; }
 
         public ICollection<ClientAccount> ClientAccounts { get; set; }
     }

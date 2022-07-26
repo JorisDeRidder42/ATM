@@ -1,7 +1,7 @@
 INSERT INTO dbo.Clients
-VALUES('Joris De Ridder','Lint','Kerkhofweg','42','2547','Meloen','1997-02-21','2022-07-19');
+VALUES('Joris De Ridder','Lint','Kerkhofweg','42','2547','Meloen','1997-02-21','2022-07-19',1);
 INSERT INTO dbo.Clients
-VALUES('Jolien Leducq','Lier','Maanstraat','13','2500','Meloen','2000-04-10','2022-07-19');
+VALUES('Jolien Leducq','Lier','Maanstraat','13','2500','Meloen','2000-04-10','2022-07-19',0);
 
 INSERT INTO dbo.Cards
 VALUES('2010203040','Appel',0);
@@ -32,3 +32,7 @@ INSERT INTO dbo.ClientAccounts
 VALUES(1,1);
 INSERT INTO dbo.ClientAccounts
 VALUES(2,2);
+
+
+SELECT *
+FROM dbo.Clients

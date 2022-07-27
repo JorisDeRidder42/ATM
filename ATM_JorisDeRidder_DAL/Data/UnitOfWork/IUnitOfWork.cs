@@ -15,6 +15,7 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
         IRepository<Account> AccountRepo { get; }
         IRepository<Log> LogRepo { get; }
         IRepository<Transaction> TransactionRepo { get; }
+        IRepository<TransactionType> TransactiontypeRepo { get; }
         IRepository<ClientAccount> ClientAccountRepo { get; }
 
         int Save();

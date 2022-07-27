@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class changedb : DbMigration
+    public partial class InitialCreate2 : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.Clients", "BirthDate", c => c.String());
+            DropColumn("dbo.Accounts", "TransactionID");
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Clients", "BirthDate", c => c.DateTimeOffset(nullable: false, precision: 7));
+            AddColumn("dbo.Accounts", "TransactionID", c => c.Int(nullable: false));
         }
     }
 }

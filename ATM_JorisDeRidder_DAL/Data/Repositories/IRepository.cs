@@ -24,5 +24,16 @@ namespace ATM_JorisDeRidder_DAL.Data.Repositories
 
         IEnumerable<T> Ophalen(Expression<Func<T, bool>> voorwaarden,
             params Expression<Func<T, object>>[] includes);
+
+        //handige functies
+        T ZoekOpPK<TPrimaryKey>(TPrimaryKey id);
+
+        void ToevoegenOfAanpassen(T entity);
+
+        void ToevoegenRange(IEnumerable<T> entities);
+
+        void Verwijderen<TPrimaryKey>(TPrimaryKey id);
+
+        void VerwijderenRange(IEnumerable<T> entities);
     }
 }

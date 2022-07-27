@@ -13,10 +13,10 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
         private IRepository<Client> _clientRepo;
         private IRepository<Account> _accountRepo;
         private IRepository<Card> _cardRepo;
-        private IRepository<Log> _logRepo;
         private IRepository<Transaction> _transactionRepo;
+        private IRepository<Log> _logRepo;
+        private IRepository<TransactionType> _transactiontypeRepo;
         private IRepository<ClientAccount> _clientAccountRepo;
-        public IRepository<Log> LogRepo => throw new NotImplementedException();
 
         public UnitOfWork(ATM_JorisDeRidderEntities atm_JorisDeRidderEntities)
         {
@@ -73,7 +73,7 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
             }
         }
 
-        public IRepository<Log> LogsRepo
+        public IRepository<Log> LogRepo
         {
             get
             {
@@ -94,6 +94,18 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
                     _transactionRepo = new Repository<Transaction>(this.ATM_JorisDeRidderEntities);
                 }
                 return _transactionRepo;
+            }
+        }
+
+        public IRepository<TransactionType> TransactiontypeRepo
+        {
+            get
+            {
+                if (_transactiontypeRepo == null)
+                {
+                    _transactiontypeRepo = new Repository<TransactionType>(this.ATM_JorisDeRidderEntities);
+                }
+                return _transactiontypeRepo;
             }
         }
 

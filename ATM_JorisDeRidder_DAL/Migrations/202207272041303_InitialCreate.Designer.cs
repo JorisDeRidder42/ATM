@@ -7,13 +7,13 @@ namespace ATM_JorisDeRidder_DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class changedb : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changedb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202207261058334_changedb"; }
+            get { return "202207272041303_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

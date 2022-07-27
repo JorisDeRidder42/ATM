@@ -66,5 +66,32 @@ namespace ATM_JorisDeRidder_DAL.Data.Repositories
         {
             return Ophalen(null, includes).ToList();
         }
+
+        //handige functies
+        public T ZoekOpPK<TPrimaryKey>(TPrimaryKey id)
+        {
+            return Context.Set<T>().Find(id);
+        }
+
+        public void ToevoegenOfAanpassen(T entity)
+        {
+            Context.Set<T>().AddOrUpdate(entity);
+        }
+
+        public void ToevoegenRange(IEnumerable<T> entities)
+        {
+            Context.Set<T>().AddRange(entities);
+        }
+
+        public void Verwijderen<TPrimaryKey>(TPrimaryKey id)
+        {
+            var entity = ZoekOpPK(id);
+            Context.Set<T>().Remove(entity);
+        }
+
+        public void VerwijderenRange(IEnumerable<T> entities)
+        {
+            Context.Set<T>().RemoveRange(entities);
+        }
     }
 }

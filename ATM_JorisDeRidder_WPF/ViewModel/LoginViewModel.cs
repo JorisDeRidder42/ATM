@@ -15,11 +15,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
-        public Client Client { get; set; }
-
         public override string this[string columnName] => "";
 
         public string? foutmelding;
+
+        public Client? Client { get; set; }
 
         public override bool CanExecute(object parameter)
         {
@@ -37,13 +37,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            var clientName = unitOfWork.ClientRepo.Ophalen(c => c.ClientName == Client.ClientName).SingleOrDefault();
-            var clientPassword = unitOfWork.ClientRepo.Ophalen(u => u.Password == Client.Password).SingleOrDefault();
-            var clientIsAdmin = unitOfWork.ClientRepo.Ophalen(u => u.IsAdmin == Client.IsAdmin).FirstOrDefault();
+            var clientName = unitOfWork.ClientRepo.Ophalen(c => c.ClientName == Client.ClientName).FirstOrDefault();
 
             if (Client.ClientName == clientName.ClientName)
             {
-                MessageBox.Show("Email or password doesn't match!");
+                ActionViewModel actionViewModel = new ActionViewModel();
+                View.ActionView actionView = new View.ActionView();
+                actionView.DataContext = actionViewModel;
+                actionView.Show();
             }
             else
             {

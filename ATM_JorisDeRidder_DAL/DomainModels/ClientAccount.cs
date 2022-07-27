@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_DAL.DomainModels
 {
+    [Table("Clientaccounts")]
     public class ClientAccount
     {
-        [Key]
         public int ClientAccountID { get; set; }
 
         [Index("IX_ClientIDAccountID", 1, IsUnique = true)]

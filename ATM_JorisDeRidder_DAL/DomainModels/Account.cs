@@ -2,25 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_DAL.DomainModels
 {
-    public class Account : Basisklasse
+    [Table("Accounts")]
+    public class Account
     {
-        [Key]
         public int AccountID { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string AccountName { get; set; }
 
-        public string type { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
 
         public ICollection<ClientAccount> ClientAccounts { get; set; }
-
-        public int TransactionID { get; set; }
-        public Transaction Transaction { get; set; }
+        public Card Card { get; set; }
     }
 }

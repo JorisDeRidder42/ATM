@@ -14,7 +14,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         public IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
         public string City { get; set; }
@@ -28,9 +28,9 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public RegisterViewModel(int? clientID = null)
         {
-            if (clientID == null)
+            if (clientID != null)
             {
-                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
             }
             else
             {
@@ -64,17 +64,31 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             if (ClientID == null)
             {
-                unitOfWork.ClientRepo.Toevoegen(Client);
-                unitOfWork.Save();
+                if (Client.ClientID == 0)
+                {
+                    Client.IsAdmin = false;
 
-                LoginViewModel lviewModel = new LoginViewModel();
-                View.LoginView lview = new View.LoginView();
-                lview.DataContext = lviewModel;
-                lview.Show();
-            }
-            else
-            {
-                MessageBox.Show("Error! One or more fields aren't correct!");
+                    if (Password != ConfirmPassword)
+                    {
+                        MessageBox.Show("Passwords are not identical");
+                    }
+                    else
+                    {
+                        unitOfWork.ClientRepo.Toevoegen(Client);
+                        unitOfWork.Save();
+
+                        MessageBox.Show("Your account is created");
+
+                        LoginViewModel lviewModel = new LoginViewModel();
+                        View.LoginView lview = new View.LoginView();
+                        lview.DataContext = lviewModel;
+                        lview.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error! One or more fields aren't correct!");
+                }
             }
         }
 

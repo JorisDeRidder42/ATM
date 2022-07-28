@@ -68,6 +68,7 @@
     <Compile Include="Data\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Data\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="DomainModels\Account.cs" />
+    <Compile Include="DomainModels\Balance.cs" />
     <Compile Include="DomainModels\Card.cs" />
     <Compile Include="DomainModels\Client.cs" />
     <Compile Include="DomainModels\ClientAccount.cs" />
@@ -82,6 +83,10 @@
     <Compile Include="Migrations\202207272044162_InitialCreate2.designer.cs">
       <DependentUpon>202207272044162_InitialCreate2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207280735439_fixbalance.cs" />
+    <Compile Include="Migrations\202207280735439_fixbalance.designer.cs">
+      <DependentUpon>202207280735439_fixbalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207272044162_InitialCreate2.resx">
       <DependentUpon>202207272044162_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207280735439_fixbalance.resx">
+      <DependentUpon>202207280735439_fixbalance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

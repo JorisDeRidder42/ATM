@@ -15,13 +15,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
+        public string? foutmelding { get; set; }
+
+        public ObservableCollection<Client> Clients { get; set; }
+
         public override string this[string columnName] => "";
-
-        public Client? Client { get; set; }
-
-        public LoginViewModel()
-        {
-        }
 
         public override bool CanExecute(object parameter)
         {
@@ -39,10 +37,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            ActionViewModel actionViewModel = new ActionViewModel();
-            View.ActionView actionView = new View.ActionView();
-            actionView.DataContext = actionViewModel;
-            actionView.Show();
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientName));
         }
 
         private void OpenRegisterPage()

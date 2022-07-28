@@ -89,7 +89,7 @@
 
         <StackPanel  Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Foreground="#fff" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center">Welcome to Ibank, the virtual bank</Label>
-            <Label Foreground="#fff" FontSize="15" FontWeight="Regular" HorizontalAlignment="Center">To acces all services, please insert your card</Label>
+            <Label Foreground="#fff" FontSize="15" FontWeight="Regular" HorizontalAlignment="Center">To acces all services, please login or register</Label>
         </StackPanel>
         <userControl:Footer Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="2" />
 

@@ -16,6 +16,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public Client? Client { get; set; }
         public string Password { get; set; }
+
         public string ConfirmPassword { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
@@ -26,7 +27,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string ClientID { get; set; }
         public string ClientName { get; set; }
 
-        public RegisterViewModel(int? clientID = null)
+        public RegisterViewModel()
         {
             if (clientID != null)
             {

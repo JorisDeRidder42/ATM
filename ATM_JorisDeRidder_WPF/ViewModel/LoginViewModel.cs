@@ -14,10 +14,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class LoginViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-
+        public string? Password { get; set; }
+        public string? ClientName { get; set; }
+        public bool? IsAdmin { get; set; }
         public string? foutmelding { get; set; }
-
-        public ObservableCollection<Client> Clients { get; set; }
+        public Client? Client { get; set; }
 
         public override string this[string columnName] => "";
 
@@ -37,7 +38,36 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientName));
+            var clientName = unitOfWork.ClientRepo.Ophalen(x => x.ClientName == Client.ClientName).FirstOrDefault();
+            var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).SingleOrDefault();
+            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
+
+            if (Client.ClientName != null)
+            {
+                if (Client.ClientName == clientName.ClientName)
+                {
+                    if (Client.Password == clientPassword.Password)
+                    {
+                        if (Client.IsAdmin == false && clientAdmin.IsAdmin == false)
+                        {
+                            OpenActionWindow();
+                            unitOfWork.ClientRepo.Ophalen();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username or password doesn't match");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Username or password doesn't match");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You first needs to register");
+            }
         }
 
         private void OpenRegisterPage()
@@ -51,6 +81,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public void Dispose()
         {
             unitOfWork.Dispose();
+        }
+
+        public void OpenActionWindow()
+        {
+            ActionViewModel actionViewModel = new ActionViewModel();
+            View.ActionView actionView = new View.ActionView();
+            actionView.DataContext = actionViewModel;
+            actionView.Show();
         }
     }
 }

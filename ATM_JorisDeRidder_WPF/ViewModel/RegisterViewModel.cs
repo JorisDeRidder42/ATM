@@ -15,23 +15,22 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
         public Client? Client { get; set; }
-        public string Password { get; set; }
-
-        public string ConfirmPassword { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
-        public string HouseNumber { get; set; }
-        public string BirthDate { get; set; }
-        public bool IsAdmin { get; set; }
-        public string ZipCode { get; set; }
-        public string ClientID { get; set; }
-        public string ClientName { get; set; }
+        public int? ClientID { get; set; }
+        public string? ClientName { get; set; }
+        public string? Password { get; set; }
+        public string? ConfirmPassword { get; set; }
+        public string? City { get; set; }
+        public string? Street { get; set; }
+        public string? HouseNumber { get; set; }
+        public string? BirthDate { get; set; }
+        public bool? IsAdmin { get; set; }
+        public string? ZipCode { get; set; }
 
         public RegisterViewModel()
         {
-            if (clientID != null)
+            if (ClientID != null)
             {
-                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
+                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
             }
             else
             {
@@ -65,31 +64,24 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             if (ClientID == null)
             {
-                if (Client.ClientID == 0)
+                Client.IsAdmin = false;
+
+                if (Password == ConfirmPassword)
                 {
-                    Client.IsAdmin = false;
+                    unitOfWork.ClientRepo.Toevoegen(Client);
+                    unitOfWork.Save();
 
-                    if (Password != ConfirmPassword)
-                    {
-                        MessageBox.Show("Passwords are not identical");
-                    }
-                    else
-                    {
-                        unitOfWork.ClientRepo.Toevoegen(Client);
-                        unitOfWork.Save();
-
-                        MessageBox.Show("Your account is created");
-
-                        LoginViewModel lviewModel = new LoginViewModel();
-                        View.LoginView lview = new View.LoginView();
-                        lview.DataContext = lviewModel;
-                        lview.Show();
-                    }
+                    MessageBox.Show("Your account is created");
+                    OpenLoginWindow();
                 }
                 else
                 {
-                    MessageBox.Show("Error! One or more fields aren't correct!");
+                    MessageBox.Show("Passwords are not identical");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Error! One or more fields aren't correct!");
             }
         }
 
@@ -104,6 +96,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public void Dispose()
         {
             unitOfWork?.Dispose();
+        }
+
+        public void OpenLoginWindow()
+        {
+            LoginViewModel lviewModel = new LoginViewModel();
+            View.LoginView lview = new View.LoginView();
+            lview.DataContext = lviewModel;
+            lview.Show();
         }
     }
 }

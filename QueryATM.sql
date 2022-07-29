@@ -34,4 +34,16 @@ INSERT INTO dbo.Logs
 VALUES(1,'2022-07-24')
 
 SELECT *
+FROM dbo.Cards
+
+SELECT *
 FROM dbo.Accounts
+
+SELECT *
+FROM dbo.Logs
+
+SELECT *
+FROM dbo.Transactions
+
+SELECT *
+FROM dbo.Clients

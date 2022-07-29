@@ -62,7 +62,7 @@
             <Label x:Name="lblBalance" Foreground="White">Balance</Label>
             <TextBox x:Name="txtBalance" Foreground="Black" Background="White" Padding="10" Text="{Binding Balance.BalanceAmount}" />
             <Label x:Name="lblDob" Foreground="White">Day Of Birth</Label>
-            <TextBox x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.BirthDate}" />
+            <DatePicker x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.BirthDate}" />
         </StackPanel>
         <Button x:Name="lblRegister" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,341,0,0" Grid.RowSpan="2" Width="182" Command="{Binding}" CommandParameter="Register">Register</Button>
 

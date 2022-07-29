@@ -11,11 +11,11 @@ using System.Windows;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class ActionViewModel : BasisViewModel
+    public class ActionViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public override string this[string columnName] => "";
-        public ObservableCollection<Client> Klanten { get; set; }
+        public ObservableCollection<Client>? Clients { get; set; }
 
         public override bool CanExecute(object parameter)
         {
@@ -38,8 +38,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void Pin()
         {
-            Klanten = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin));
-            if (Klanten != null)
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin));
+            if (Clients != null)
             {
                 MessageBox.Show("test");
             }
@@ -91,6 +91,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.LoginView loginView = new View.LoginView();
             loginView.DataContext = loginViewModel;
             loginView.Show();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

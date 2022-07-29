@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using System;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class AccountViewModel : BasisViewModel
+    public class AccountViewModel : BasisViewModel, IDisposable
     {
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {
             return true;
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
 
         public override void Execute(object parameter)

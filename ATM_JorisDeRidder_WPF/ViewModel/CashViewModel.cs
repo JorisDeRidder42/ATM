@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using System;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class CashViewModel : BasisViewModel
+    public class CashViewModel : BasisViewModel, IDisposable
     {
-        public override string this[string columnName] => throw new NotImplementedException();
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+        public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {
@@ -65,6 +64,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private void Withdraw10()
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

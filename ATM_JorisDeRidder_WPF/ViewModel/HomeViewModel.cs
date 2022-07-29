@@ -28,7 +28,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void Dispose()
         {
-            unitOfWork.Dispose();
+            unitOfWork?.Dispose();
         }
 
         public override void Execute(object parameter)

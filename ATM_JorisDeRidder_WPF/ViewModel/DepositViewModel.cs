@@ -11,7 +11,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class DepositViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public override string this[string columnName] => throw new NotImplementedException();
+        public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {

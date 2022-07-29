@@ -12,7 +12,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 {
     public class RegisterViewModel : BasisViewModel, IDisposable
     {
-        public IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
         public Client? Client { get; set; }
         public int? ClientID { get; set; }

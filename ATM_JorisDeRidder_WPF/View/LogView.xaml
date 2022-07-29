@@ -34,10 +34,10 @@
 
         <DataGrid x:Name="datagridLogs" AutoGenerateColumns="True" Grid.Row="1" Grid.Column="0"
                   ItemsSource="{Binding Logs}"
+                  SelectedItem="{Binding SelectedLogs}" Margin="5"
                   IsReadOnly="true"
-                  Grid.ColumnSpan="4" Margin="5">
+                  Grid.ColumnSpan="4" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Logs}" Header="Logs"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class DepositViewModel : BasisViewModel
+    public class DepositViewModel : BasisViewModel, IDisposable
     {
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public override string this[string columnName] => throw new NotImplementedException();
 
         public override bool CanExecute(object parameter)
@@ -38,6 +41,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.ActionView actionView = new View.ActionView();
             actionView.DataContext = actionViewModel;
             actionView.Show();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class LogViewModel : BasisViewModel
+    public class LogViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public ObservableCollection<Log> Logs { get; set; }
-        public override string this[string columnName] => throw new NotImplementedException();
+        public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {
@@ -44,6 +44,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.ActionView actionView = new View.ActionView();
             actionView.DataContext = actionViewModel;
             actionView.Show();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

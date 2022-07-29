@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class HomeViewModel : BasisViewModel
+    public class HomeViewModel : BasisViewModel, IDisposable
     {
-        public override string this[string columnName] => throw new NotImplementedException();
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+        public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {
@@ -21,6 +24,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Login": return true;
             }
             return true;
+        }
+
+        public void Dispose()
+        {
+            unitOfWork.Dispose();
         }
 
         public override void Execute(object parameter)

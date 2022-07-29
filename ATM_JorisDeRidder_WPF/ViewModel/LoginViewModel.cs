@@ -19,6 +19,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public bool? IsAdmin { get; set; }
         public string? foutmelding { get; set; }
         public Client? Client { get; set; }
+        public ObservableCollection<Client> Clients { get; set; }
+
+        public LoginViewModel()
+        {
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+        }
 
         public override string this[string columnName] => "";
 
@@ -38,36 +44,37 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            var clientName = unitOfWork.ClientRepo.Ophalen(x => x.ClientName == Client.ClientName).FirstOrDefault();
-            var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).SingleOrDefault();
-            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
+            OpenActionWindow();
+            //var clientName = unitOfWork.ClientRepo.Ophalen(x => x.ClientName == Client.ClientName).LastOrDefault();
+            //var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).SingleOrDefault();
+            //var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
 
-            if (Client.ClientName != null)
-            {
-                if (Client.ClientName == clientName.ClientName)
-                {
-                    if (Client.Password == clientPassword.Password)
-                    {
-                        if (Client.IsAdmin == false && clientAdmin.IsAdmin == false)
-                        {
-                            OpenActionWindow();
-                            unitOfWork.ClientRepo.Ophalen();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Username or password doesn't match");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Username or password doesn't match");
-                }
-            }
-            else
-            {
-                MessageBox.Show("You first needs to register");
-            }
+            //if (Client.ClientName != null)
+            //{
+            //    if (Client.ClientName == clientName.ClientName)
+            //    {
+            //        if (Client.Password == clientPassword.Password)
+            //        {
+            //            if (Client.IsAdmin == false && clientAdmin.IsAdmin == false)
+            //            {
+            //                OpenActionWindow();
+            //                unitOfWork.ClientRepo.Ophalen();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Username or password doesn't match");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Username or password doesn't match");
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("You first needs to register");
+            //}
         }
 
         private void OpenRegisterPage()
@@ -85,10 +92,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenActionWindow()
         {
-            ActionViewModel actionViewModel = new ActionViewModel();
-            View.ActionView actionView = new View.ActionView();
-            actionView.DataContext = actionViewModel;
-            actionView.Show();
+            //ActionViewModel actionViewModel = new ActionViewModel();
+            //View.ActionView actionView = new View.ActionView();
+            //actionView.DataContext = actionViewModel;
+            //actionView.Show();
+            LogViewModel logViewModel = new LogViewModel();
+            View.LogView logView = new View.LogView();
+            logView.DataContext = logViewModel;
+            logView.Show();
         }
     }
 }

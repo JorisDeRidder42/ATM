@@ -25,6 +25,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? BirthDate { get; set; }
         public bool? IsAdmin { get; set; }
         public string? ZipCode { get; set; }
+        public Card? Card { get; private set; }
+        public string? foutmelding { get; set; }
 
         public RegisterViewModel()
         {
@@ -65,6 +67,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             if (ClientID == null)
             {
                 Client.IsAdmin = false;
+                Card = new Card();
 
                 if (Password == ConfirmPassword)
                 {
@@ -76,12 +79,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("Passwords are not identical");
+                    foutmelding = "Passwords are not identical";
                 }
             }
             else
             {
-                MessageBox.Show("Error! One or more fields aren't correct!");
+                foutmelding = "Error! One or more fields aren't correct!";
             }
         }
 

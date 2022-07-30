@@ -59,9 +59,9 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            var clientEmail = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == clientEmail.ClientEmail).FirstOrDefault();
+            var clientEmail = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == ClientEmail).FirstOrDefault();
             var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).FirstOrDefault();
-            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).FirstOrDefault();
+            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
 
             if (Client.ClientEmail == clientEmail.ClientEmail)
             {

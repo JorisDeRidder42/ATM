@@ -17,6 +17,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public Client? Client { get; set; }
         public int? ClientID { get; set; }
+        public string? ClientName { get; set; }
         public string? ClientEmail { get; set; }
         public string? Password { get; set; }
         public string? ConfirmPassword { get; set; }
@@ -30,9 +31,9 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? foutmelding { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
-        public RegisterViewModel()
+        public RegisterViewModel(int? clientID = null)
         {
-            if (ClientID != null)
+            if (clientID != null)
             {
                 Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
             }
@@ -83,10 +84,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 {
                     foutmelding = "Passwords are not identical";
                 }
-            }
-            else
-            {
-                foutmelding = "Error! One or more fields aren't correct!";
             }
         }
 

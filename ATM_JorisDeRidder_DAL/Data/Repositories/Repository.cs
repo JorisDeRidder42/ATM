@@ -19,11 +19,6 @@ namespace ATM_JorisDeRidder_DAL.Data.Repositories
             this.Context = context;
         }
 
-        public void Aanpassen(T entity)
-        {
-            Context.Entry<T>(entity).State = EntityState.Modified;
-        }
-
         public IEnumerable<T> Ophalen()
         {
             return Context.Set<T>().ToList();
@@ -32,6 +27,11 @@ namespace ATM_JorisDeRidder_DAL.Data.Repositories
         public void Toevoegen(T entity)
         {
             Context.Set<T>().Add(entity);
+        }
+
+        public void Aanpassen(T entity)
+        {
+            Context.Entry<T>(entity).State = EntityState.Modified;
         }
 
         public void Verwijderen(T entity)

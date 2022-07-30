@@ -30,6 +30,7 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.InitialCreate.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.InitialCreate2.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.fixbalance.resources
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.changedbemail.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.GenerateResource.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CoreCompileInputs.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.Fody.CopyLocal.cache
@@ -37,6 +38,5 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CopyComplete
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.pdb
-C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.changedbemail.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\PropertyChanged.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\PropertyChanged.xml

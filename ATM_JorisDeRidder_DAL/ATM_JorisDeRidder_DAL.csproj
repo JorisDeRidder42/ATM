@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202207280735439_fixbalance.designer.cs">
       <DependentUpon>202207280735439_fixbalance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207301058390_changedbemail.cs" />
+    <Compile Include="Migrations\202207301058390_changedbemail.designer.cs">
+      <DependentUpon>202207301058390_changedbemail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -103,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207280735439_fixbalance.resx">
       <DependentUpon>202207280735439_fixbalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207301058390_changedbemail.resx">
+      <DependentUpon>202207301058390_changedbemail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

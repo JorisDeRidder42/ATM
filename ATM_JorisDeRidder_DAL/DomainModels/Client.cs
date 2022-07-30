@@ -15,6 +15,9 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public int ClientID { get; set; }
 
         [Required]
+        public string ClientEmail { get; set; }
+
+        [Required]
         public string ClientName { get; set; }
 
         [Required]

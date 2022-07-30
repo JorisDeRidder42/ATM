@@ -3,6 +3,7 @@ using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
 using ATM_JorisDeRidder_DAL.DomainModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public Client? Client { get; set; }
         public int? ClientID { get; set; }
-        public string? ClientName { get; set; }
+        public string? ClientEmail { get; set; }
         public string? Password { get; set; }
         public string? ConfirmPassword { get; set; }
         public string? City { get; set; }
@@ -27,6 +28,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? ZipCode { get; set; }
         public Card? Card { get; private set; }
         public string? foutmelding { get; set; }
+        public ObservableCollection<Client>? Clients { get; set; }
 
         public RegisterViewModel()
         {
@@ -67,12 +69,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             if (ClientID == null)
             {
                 Client.IsAdmin = false;
-                Card = new Card();
 
                 if (Password == ConfirmPassword)
                 {
                     unitOfWork.ClientRepo.Toevoegen(Client);
                     unitOfWork.Save();
+                    RefreshData();
 
                     MessageBox.Show("Your account is created");
                     OpenLoginWindow();
@@ -107,6 +109,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.LoginView lview = new View.LoginView();
             lview.DataContext = lviewModel;
             lview.Show();
+        }
+
+        private void RefreshData()
+        {
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
         }
     }
 }

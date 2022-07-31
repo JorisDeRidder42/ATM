@@ -24,17 +24,17 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public Client? Client { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
-        public LoginViewModel()
+        public LoginViewModel(int? clientID = null)
         {
-            Client = unitOfWork.ClientRepo.Ophalen().SingleOrDefault();
-            //if (clientID != null)
-            //{
-            //    Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
-            //}
-            //else
-            //{
-            //    Client = new Client();
-            //}
+            //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID).SingleOrDefault()
+            if (clientID != null)
+            {
+                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+            }
+            else
+            {
+                Client = new Client();
+            }
         }
 
         public override string this[string columnName]
@@ -62,22 +62,23 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public void OpenLogin()
         {
             var clientEmail = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == Client.ClientEmail).SingleOrDefault();
+            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
             var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).FirstOrDefault();
-            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).FirstOrDefault();
+
             if (Client.ClientEmail == clientEmail.ClientEmail)
             {
                 if (Client.Password == clientPassword.Password)
                 {
-                    if (Client.IsAdmin == true && clientAdmin.IsAdmin == true)
+                    if (Client.IsAdmin == false && clientAdmin.IsAdmin == false)
+                    {
+                        unitOfWork.ClientRepo.Ophalen();
+                        OpenActionWindow();
+                    }
+                    else
                     {
                         MessageBox.Show($"You are now logged in As ADMIN", "Information");
                         unitOfWork.ClientRepo.Ophalen();
                         openAdminWindow();
-                    }
-                    else
-                    {
-                        unitOfWork.ClientRepo.Ophalen();
-                        OpenActionWindow();
                     }
                 }
                 else

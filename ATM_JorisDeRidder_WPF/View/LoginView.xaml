@@ -37,7 +37,7 @@
         </StackPanel>
         <userControl:Header Grid.ColumnSpan="3" Grid.Row="0" />
         <StackPanel Margin="10" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3">
-            <Label x:Name="lblName" Foreground="White">Email/username</Label>
+            <Label x:Name="lblName" Foreground="White">Email</Label>
             <TextBox Foreground="Black" Background="White" Padding="20" Text="{Binding Client.ClientEmail}" />
         </StackPanel>
         <StackPanel Margin="10" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
@@ -45,7 +45,6 @@
             <TextBox Foreground="Black" Background="White" Padding="20" Text="{Binding Client.Password}" />
             <Label Content="{Binding foutmelding}" Foreground="Red" FontSize="15" />
             <Button x:Name="btnLogin" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Height="50" Content="Login" Command="{Binding}" CommandParameter="Login" />
-            <Button x:Name="txtForgotPassword" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Forgot" HorizontalAlignment="Left">Forgot password?</Button>
             <StackPanel>
                 <StackPanel Margin="0 20" Orientation="Horizontal">
                     <TextBlock x:Name="txtMember" VerticalAlignment="Center" Foreground="#fff" Text="Not yet member? " />

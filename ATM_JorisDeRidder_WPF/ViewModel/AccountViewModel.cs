@@ -23,11 +23,20 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             switch (parameter.ToString())
             {
-                case "Zicht": Go(); break;
+                case "Account": OpenActionWindow(); break;
+                case "New": OpenNewAccountWindow(); break;
             }
         }
 
-        public void Go()
+        public void OpenActionWindow()
+        {
+            ActionViewModel actionViewModel = new ActionViewModel();
+            View.ActionView actionView = new View.ActionView();
+            actionView.DataContext = actionViewModel;
+            actionView.Show();
+        }
+
+        public void OpenNewAccountWindow()
         {
             ActionViewModel actionViewModel = new ActionViewModel();
             View.ActionView actionView = new View.ActionView();

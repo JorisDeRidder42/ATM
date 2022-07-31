@@ -24,12 +24,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public Client? Client { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
-        public LoginViewModel(int? clientID = null)
+        public LoginViewModel()
         {
-            //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID).SingleOrDefault()
-            if (clientID != null)
+            if (ClientID != null)
             {
-                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
             }
             else
             {
@@ -56,20 +55,26 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             {
                 case "Register": OpenRegisterPage(); break;
                 case "Login": OpenLogin(); break;
+                case "Account": CreateAccount(); break;
             }
+        }
+
+        private void CreateAccount()
+        {
+            throw new NotImplementedException();
         }
 
         public void OpenLogin()
         {
             var clientEmail = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == Client.ClientEmail).SingleOrDefault();
             var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
-            var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).FirstOrDefault();
+            var clientIsAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).FirstOrDefault();
 
             if (Client.ClientEmail == clientEmail.ClientEmail)
             {
                 if (Client.Password == clientPassword.Password)
                 {
-                    if (Client.IsAdmin == false && clientAdmin.IsAdmin == false)
+                    if (Client.IsAdmin == false || clientIsAdmin.IsAdmin == false)
                     {
                         unitOfWork.ClientRepo.Ophalen();
                         OpenActionWindow();
@@ -83,12 +88,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("Email or password doesn't match");
+                    MessageBox.Show("Email or password dont match");
                 }
             }
             else
             {
-                MessageBox.Show("Email or password doesn't match");
+                MessageBox.Show("Email or password dont match");
             }
         }
 

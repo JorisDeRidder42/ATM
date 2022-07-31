@@ -32,16 +32,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Balance": Balance(); break;
                 case "Cash": Cash(); break;
                 case "Logs": Logs(); break;
-                case "Pin": Pin(); break;
-            }
-        }
-
-        private void Pin()
-        {
-            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin));
-            if (Clients != null)
-            {
-                MessageBox.Show("test");
             }
         }
 

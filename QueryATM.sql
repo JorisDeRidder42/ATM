@@ -1,7 +1,7 @@
 INSERT INTO dbo.Clients
 VALUES('Joris De Ridder','Meloen', 'Meloen','Belgium','Lint','Kerkhofweg','42','2547',1,'1997-02-21','Joris.42@hotmail.com');
 INSERT INTO dbo.Clients
-VALUES('Jolien Leducq','Meloen','Meloen','Belgium','Lier','Maanstraat','13','2500',0,'2000-04-10','Jolien.leduqc@icloud.com');
+VALUES('Jolien Leducq','Appel','Appel','Belgium','Lier','Maanstraat','13','2500',0,'2000-04-10','Jolien.leduqc@icloud.com');
 
 INSERT INTO dbo.Cards
 VALUES('2010203040','Meloen');

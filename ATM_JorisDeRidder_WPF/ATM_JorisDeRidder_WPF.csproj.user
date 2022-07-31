@@ -31,6 +31,9 @@
     <Compile Update="View\CashView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CreateAccountView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\DepositView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CashView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CreateAccountView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DepositView.xaml">

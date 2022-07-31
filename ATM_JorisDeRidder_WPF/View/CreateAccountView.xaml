@@ -1,0 +1,38 @@
+﻿<Window x:Class="ATM_JorisDeRidder_WPF.View.CreateAccountView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
+        xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Foreground="White"
+        Background="#111C26"
+        FontFamily="Poppins"
+        VerticalAlignment="Center"
+        Title="CreateAccountView" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <userControl:FooterBack Grid.Row="3" Grid.ColumnSpan="5" />
+        <userControl:Header Grid.Row="0" Grid.ColumnSpan="4" />
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBox Text="{Binding Account.AccountName}" />
+            <TextBox Text="{Binding Account.AccoutAmount}" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -67,11 +67,16 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void Register()
         {
-            if (ClientID == null)
+            var clientClientID = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
+            var clientClientemail = unitOfWork.ClientRepo.Ophalen(c => c.ClientEmail == Client.ClientEmail).SingleOrDefault();
+            var clientConfirmPassword = unitOfWork.ClientRepo.Ophalen(c => c.ConfirmPassword == Client.ConfirmPassword).SingleOrDefault();
+            var clientClientPassword = unitOfWork.ClientRepo.Ophalen(c => c.Password == Client.Password).SingleOrDefault();
+
+            if (clientClientID == null)
             {
                 Client.IsAdmin = false;
 
-                if (Password == ConfirmPassword)
+                if (clientClientPassword == clientConfirmPassword)
                 {
                     unitOfWork.ClientRepo.Toevoegen(Client);
                     unitOfWork.Save();
@@ -82,7 +87,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 }
                 else
                 {
-                    foutmelding = "Passwords are not identical";
+                    MessageBox.Show("Passwords are not identical");
                 }
             }
         }

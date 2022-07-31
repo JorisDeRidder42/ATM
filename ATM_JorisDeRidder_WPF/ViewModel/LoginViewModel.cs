@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
 using ATM_JorisDeRidder_DAL.DomainModels;
@@ -23,16 +24,17 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public Client? Client { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
-        public LoginViewModel(int? clientID = null)
+        public LoginViewModel()
         {
-            if (clientID != null)
-            {
-                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
-            }
-            else
-            {
-                Client = new Client();
-            }
+            Client = unitOfWork.ClientRepo.Ophalen().SingleOrDefault();
+            //if (clientID != null)
+            //{
+            //    Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+            //}
+            //else
+            //{
+            //    Client = new Client();
+            //}
         }
 
         public override string this[string columnName]
@@ -59,18 +61,23 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            var clientEmail = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == ClientEmail).FirstOrDefault();
+            var clientEmail = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == Client.ClientEmail).SingleOrDefault();
             var clientAdmin = unitOfWork.ClientRepo.Ophalen(x => x.IsAdmin == Client.IsAdmin).FirstOrDefault();
-            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).SingleOrDefault();
-
+            var clientPassword = unitOfWork.ClientRepo.Ophalen(x => x.Password == Client.Password).FirstOrDefault();
             if (Client.ClientEmail == clientEmail.ClientEmail)
             {
                 if (Client.Password == clientPassword.Password)
                 {
-                    if (Client.IsAdmin == false && clientAdmin.IsAdmin == false)
+                    if (Client.IsAdmin == true && clientAdmin.IsAdmin == true)
                     {
-                        OpenActionWindow();
+                        MessageBox.Show($"You are now logged in As ADMIN", "Information");
                         unitOfWork.ClientRepo.Ophalen();
+                        openAdminWindow();
+                    }
+                    else
+                    {
+                        unitOfWork.ClientRepo.Ophalen();
+                        OpenActionWindow();
                     }
                 }
                 else
@@ -99,14 +106,18 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenActionWindow()
         {
-            //ActionViewModel actionViewModel = new ActionViewModel();
-            //View.ActionView actionView = new View.ActionView();
-            //actionView.DataContext = actionViewModel;
-            //actionView.Show();
-            LogViewModel logViewModel = new LogViewModel();
-            View.LogView logView = new View.LogView();
-            logView.DataContext = logViewModel;
-            logView.Show();
+            ActionViewModel actionViewModel = new ActionViewModel();
+            View.ActionView actionView = new View.ActionView();
+            actionView.DataContext = actionViewModel;
+            actionView.Show();
+        }
+
+        public void openAdminWindow()
+        {
+            AdminViewModel adminViewModel = new AdminViewModel();
+            View.AdminView adminView = new View.AdminView();
+            adminView.DataContext = adminViewModel;
+            adminView.Show();
         }
     }
 }

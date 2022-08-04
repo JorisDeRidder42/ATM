@@ -67,28 +67,25 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void Register()
         {
-            var clientClientID = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
-            var clientClientemail = unitOfWork.ClientRepo.Ophalen(c => c.ClientEmail == Client.ClientEmail).SingleOrDefault();
-            var clientConfirmPassword = unitOfWork.ClientRepo.Ophalen(c => c.ConfirmPassword == Client.ConfirmPassword).SingleOrDefault();
-            var clientClientPassword = unitOfWork.ClientRepo.Ophalen(c => c.Password == Client.Password).SingleOrDefault();
+            var client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
 
-            if (clientClientID == null)
+            if (client == null)
             {
-                Client.IsAdmin = false;
+                MessageBox.Show("Error");
+                return;
+            }
+            if (Client.Password == client.Password)
+            {
+                unitOfWork.ClientRepo.Toevoegen(Client);
+                unitOfWork.Save();
+                RefreshData();
 
-                if (clientClientPassword == clientConfirmPassword)
-                {
-                    unitOfWork.ClientRepo.Toevoegen(Client);
-                    unitOfWork.Save();
-                    RefreshData();
-
-                    MessageBox.Show("Your account is created");
-                    OpenLoginWindow();
-                }
-                else
-                {
-                    MessageBox.Show("Passwords are not identical");
-                }
+                MessageBox.Show("Your account is created");
+                OpenLoginWindow();
+            }
+            else
+            {
+                MessageBox.Show("Passwords are not identical");
             }
         }
 

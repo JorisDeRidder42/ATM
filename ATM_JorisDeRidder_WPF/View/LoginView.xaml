@@ -50,7 +50,7 @@
                     <TextBlock x:Name="txtMember" VerticalAlignment="Center" Foreground="#fff" Text="Not yet member? " />
                     <Button x:Name="txtSignup" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Register">Signup now</Button>
                 </StackPanel>
-                <Button x:Name="txtAccount" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Account">Create your account here</Button>
+                <Button x:Name="txtAccount" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Account">Create your bill here</Button>
             </StackPanel>
         </StackPanel>
         <userControl:Footer Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="2" />

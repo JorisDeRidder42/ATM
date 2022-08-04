@@ -35,11 +35,11 @@
             <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select your transaction please</Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="lblBalance" Foreground="#fff" FontSize="15" FontWeight="Regular">Balance:</Label>
-                <Label x:Name="lblnumber" Foreground="#fff" FontSize="15" FontWeight="Regular"></Label>
+                <Label x:Name="lblnumber" Foreground="#fff" FontSize="15" FontWeight="Regular" Content="{Binding Balance.BalanceAmount}"></Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label x:Name="lblAccount" Foreground="#fff" FontSize="15" FontWeight="Regular">Account:</Label>
-                <Label x:Name="lblAname" Foreground="#fff" FontSize="15" FontWeight="Regular"></Label>
+                <Label x:Name="lblAccount" Foreground="#fff" FontSize="15" FontWeight="Regular">Name:</Label>
+                <Label x:Name="lblAname" Foreground="#fff" FontSize="15" FontWeight="Regular" Content="{Binding Client.ClientName}"></Label>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">

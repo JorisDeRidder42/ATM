@@ -53,7 +53,7 @@ namespace ATM_JorisDeRidder_WPF.userControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ATM_JorisDeRidder_WPF;V1.0.0.0;component/usercontrols/footerback.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ATM_JorisDeRidder_WPF;component/usercontrols/footerback.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\userControls\FooterBack.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

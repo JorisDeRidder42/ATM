@@ -34,10 +34,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void CreateAccount()
         {
-            DepositViewModel depositViewModel = new DepositViewModel();
-            View.DepositView depositView = new View.DepositView();
-            depositView.DataContext = depositViewModel;
-            depositView.Show();
+            ActionViewModel actionViewModel = new ActionViewModel();
+            View.ActionView actionView = new View.ActionView();
+            actionView.DataContext = actionViewModel;
+            actionView.Show();
         }
 
         private void Back()

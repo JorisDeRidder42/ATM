@@ -14,7 +14,6 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public int LogID { get; set; }
         public int CardID { get; set; }
 
-        [Required]
         public string DateLog { get; set; }
 
         public Card Card { get; set; }

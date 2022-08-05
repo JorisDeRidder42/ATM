@@ -37,9 +37,9 @@
             <Label x:Name="lblBalance" FontSize="25">Your balance:</Label>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
-            <Label x:Name="lblID" Foreground="#fff" FontSize="25" Content="{Binding Client.ClientID}" Target="{Binding Client.ClientID}" />
-            <Label x:Name="lblCName" Foreground="#fff" FontSize="25" Content="{Binding Client.ClientName}" Target="{Binding Client.ClientName}" />
-            <Label x:Name="lblCBalance" Foreground="#fff" FontSize="25" Content="{Binding Balance.BalanceAmount}" Target="{Binding Balance.BalanceAmount}" />
+            <TextBlock x:Name="lblID" Foreground="#fff" FontSize="25" Text="{Binding Client.ClientID}" />
+            <TextBlock x:Name="lblCName" Foreground="#fff" FontSize="25" Text="{Binding Client.ClientName}" />
+            <TextBlock x:Name="lblCBalance" Foreground="#fff" FontSize="25" Text="{Binding Balance.BalanceAmount}" />
         </StackPanel>
     </Grid>
 </Window>

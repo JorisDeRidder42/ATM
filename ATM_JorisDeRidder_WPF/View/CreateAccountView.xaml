@@ -29,15 +29,15 @@
         <userControl:FooterBack Grid.Row="3" Grid.ColumnSpan="5" />
         <userControl:Header Grid.Row="0" Grid.ColumnSpan="4" />
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold">Create your account</Label>
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold">Create your bill</Label>
             <StackPanel>
                 <Label x:Name="lblAname" Foreground="White">Account name</Label>
                 <TextBox x:Name="txtAname" Foreground="Black" Background="White" Padding="10" Text="{Binding Account.AccountName}" />
                 <Label x:Name="lblAamount" Foreground="White">Amount</Label>
                 <TextBox x:Name="txtAamount" Foreground="Black" Background="White" Padding="10" Text="{Binding Account.Amount}" />
-                <CheckBox x:Name="cb1" Content="Duo account" Checked="{Binding Account.IsDuoAccount}" />
                 <Label  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center"  Foreground="Red" Content="{Binding foutmelding}" />
-                <Button x:Name="lblAccount" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"  Grid.RowSpan="2" Width="182" Command="{Binding}" CommandParameter="CreateAccount">Create account</Button>
+                <CheckBox x:Name="cb1" Content="Duo account" Checked="{Binding Account.IsDuoAccount}" />
+                <Button x:Name="lblAccount" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"  Grid.RowSpan="2" Width="182" Command="{Binding}" CommandParameter="Create">Create bill</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

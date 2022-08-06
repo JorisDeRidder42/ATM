@@ -12,10 +12,9 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
     public class Log
     {
         public int LogID { get; set; }
-        public int CardID { get; set; }
 
         public string DateLog { get; set; }
 
-        public Card Card { get; set; }
+        public ICollection<Card> Cards { get; set; }
     }
 }

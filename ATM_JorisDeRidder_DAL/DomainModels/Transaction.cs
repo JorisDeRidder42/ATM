@@ -12,12 +12,11 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
     public class Transaction
     {
         public int TransactionID { get; set; }
+        public TransactionType TransactionTypeID { get; set; }
 
         [Required]
         public int TransactionAmount { get; set; }
 
-        public TransactionType TransactionTypeID { get; set; }
-
-        public ICollection<TransactionType> Transactiontypes { get; set; }
+        public ICollection<Account> Accounts { get; set; }
     }
 }

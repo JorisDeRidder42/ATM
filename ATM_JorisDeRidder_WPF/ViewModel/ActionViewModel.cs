@@ -14,6 +14,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class ActionViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+
+        public Client Client { get; set; }
         public override string this[string columnName] => "";
         public ObservableCollection<Client>? Clients { get; set; }
 

@@ -16,6 +16,6 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         [Required]
         public string TransactionTypeName { get; set; }
 
-        public Transaction Transaction { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
     }
 }

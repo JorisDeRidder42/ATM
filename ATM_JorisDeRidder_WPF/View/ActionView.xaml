@@ -32,15 +32,7 @@
         <userControl:Footer Grid.Row="3" Grid.ColumnSpan="5" />
         <userControl:Header Grid.Row="0" Grid.ColumnSpan="4" />
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-            <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select your transaction please</Label>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label x:Name="lblBalance" Foreground="#fff" FontSize="15" FontWeight="Regular">Balance:</Label>
-                <Label x:Name="lblnumber" Foreground="#fff" FontSize="15" FontWeight="Regular" Content="{Binding Balance.BalanceAmount}"></Label>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label x:Name="lblAccount" Foreground="#fff" FontSize="15" FontWeight="Regular">Name:</Label>
-                <Label x:Name="lblAname" Foreground="#fff" FontSize="15" FontWeight="Regular" Content="{Binding Client.ClientName}"></Label>
-            </StackPanel>
+            <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select what you want to do</Label>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
             <Button Margin="10" Command="{Binding}" CommandParameter="Deposit">Deposit</Button>

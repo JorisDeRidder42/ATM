@@ -69,23 +69,25 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             var client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
 
-            if (client == null)
+            if (ClientID == null || client == null)
             {
-                MessageBox.Show("Error");
-                return;
-            }
-            if (Client.Password == client.Password)
-            {
-                unitOfWork.ClientRepo.Toevoegen(Client);
-                unitOfWork.Save();
-                RefreshData();
+                if (Client.Password == client.Password)
+                {
+                    unitOfWork.ClientRepo.Toevoegen(Client);
+                    unitOfWork.Save();
+                    RefreshData();
 
-                MessageBox.Show("Your account is created");
-                OpenLoginWindow();
+                    MessageBox.Show("Your account is created", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    OpenLoginWindow();
+                }
+                else
+                {
+                    foutmelding = "Please fill in the form";
+                }
             }
             else
             {
-                MessageBox.Show("Passwords are not identical");
+                foutmelding = "This account already exists";
             }
         }
 

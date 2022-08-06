@@ -55,13 +55,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             {
                 case "Register": OpenRegisterPage(); break;
                 case "Login": OpenLogin(); break;
-                case "Account": CreateAccount(); break;
             }
-        }
-
-        private void CreateAccount()
-        {
-            throw new NotImplementedException();
         }
 
         public void OpenLogin()
@@ -70,7 +64,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
             if (client == null)
             {
-                MessageBox.Show("Error");
+                foutmelding = "There is no account that has this password and or username";
                 return;
             }
 
@@ -85,19 +79,19 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                     }
                     else
                     {
-                        MessageBox.Show($"You are now logged in As ADMIN", "Information");
+                        MessageBox.Show($"You are now logged in As ADMIN", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                         unitOfWork.ClientRepo.Ophalen();
                         openAdminWindow();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Email or password dont match");
+                    foutmelding = "Email or password dont match";
                 }
             }
             else
             {
-                MessageBox.Show("Email or password dont match");
+                foutmelding = "Email or password dont match";
             }
         }
 
@@ -116,10 +110,15 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenActionWindow()
         {
-            ActionViewModel actionViewModel = new ActionViewModel();
-            View.ActionView actionView = new View.ActionView();
-            actionView.DataContext = actionViewModel;
-            actionView.Show();
+            //ActionViewModel actionViewModel = new ActionViewModel();
+            //View.ActionView actionView = new View.ActionView();
+            //actionView.DataContext = actionViewModel;
+            //actionView.Show();
+
+            AccountViewModel aViewModel = new AccountViewModel();
+            View.AccountView aView = new View.AccountView();
+            aView.DataContext = aViewModel;
+            aView.Show();
         }
 
         public void openAdminWindow()

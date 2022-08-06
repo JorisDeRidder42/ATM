@@ -1,12 +1,20 @@
 ﻿using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
 using System;
+using System.Collections.ObjectModel;
+using ATM_JorisDeRidder_DAL;
+using System.Windows;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
     public class AccountViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+        public Account? Account { get; set; }
+
+        public Account? SelectedAccount { get; set; }
+
         public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
@@ -14,34 +22,44 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             return true;
         }
 
+        public override void Execute(object parameter)
+        {
+            switch (parameter.ToString())
+            {
+                case "Go": OpenActionWindow(); break;
+                case "Bill": CreateNewBill(); break;
+                case "Back": Back(); break;
+            }
+        }
+
+        private void CreateNewBill()
+        {
+            CreateAccountViewModel createAccountViewModel = new CreateAccountViewModel();
+            View.CreateAccountView createAccountView = new View.CreateAccountView();
+            createAccountView.DataContext = createAccountViewModel;
+            createAccountView.Show();
+        }
+
+        public void OpenActionWindow()
+        {
+        }
+
         public void Dispose()
         {
             unitOfWork?.Dispose();
         }
 
-        public override void Execute(object parameter)
-        {
-            switch (parameter.ToString())
-            {
-                case "Account": OpenActionWindow(); break;
-                case "New": OpenNewAccountWindow(); break;
-            }
-        }
+        //ActionViewModel actionViewModel = new ActionViewModel();
+        //View.ActionView actionView = new View.ActionView();
+        //actionView.DataContext = actionViewModel;
+        //actionView.Show();
 
-        public void OpenActionWindow()
+        private void Back()
         {
-            ActionViewModel actionViewModel = new ActionViewModel();
-            View.ActionView actionView = new View.ActionView();
-            actionView.DataContext = actionViewModel;
-            actionView.Show();
-        }
-
-        public void OpenNewAccountWindow()
-        {
-            ActionViewModel actionViewModel = new ActionViewModel();
-            View.ActionView actionView = new View.ActionView();
-            actionView.DataContext = actionViewModel;
-            actionView.Show();
+            LoginViewModel lviewModel = new LoginViewModel();
+            View.LoginView lView = new View.LoginView();
+            lView.DataContext = lviewModel;
+            lView.Show();
         }
     }
 }

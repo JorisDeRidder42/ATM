@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
-        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls" xmlns:viewmodel="clr-namespace:ATM_JorisDeRidder_WPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AccountViewModel}"
         mc:Ignorable="d"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -31,11 +31,19 @@
         </Grid.RowDefinitions>
         <userControl:FooterBack Grid.Row="3" Grid.ColumnSpan="5" />
         <userControl:Header Grid.Row="0" Grid.ColumnSpan="4" />
-        <Button x:Name="Account" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="100" Height="100"  HorizontalAlignment="Center" Command="{Binding}" CommandParameter="Account">
-            <StackPanel>
-                <Label x:Name="lblAccount" FontSize="20" Foreground="White"></Label>
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnNew" Width="80" Height="50" Grid.Column="3" Grid.Row="2" Margin="10" Background="White" Foreground="#111C26" BorderBrush="Transparent" Command="{Binding}" CommandParameter="New" Content="+" />
+        <StackPanel  Grid.ColumnSpan="2" Grid.Row="1" Margin="20" Grid.Column="1">
+            <Label Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select your account</Label>
+        </StackPanel>
+        <StackPanel  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" Width="200" VerticalAlignment="Center">
+
+            <ComboBox x:Name="cbxAccount"
+                          DisplayMemberPath="AccountName"
+                          ItemsSource="{Binding Account.AccountName}"
+                          SelectedValue="{Binding Account.AccountName, ValidatesOnDataErrors=True}"
+                          Margin="5" Background="White" />
+
+            <Button x:Name="txtBill" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Bill" Content="Create your bill here" />
+            <Button x:Name="lblGo"  Margin="10" Grid.RowSpan="2" Command="{Binding}" CommandParameter="Go" Content="Go" />
+        </StackPanel>
     </Grid>
 </Window>

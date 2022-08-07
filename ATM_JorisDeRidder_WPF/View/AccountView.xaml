@@ -38,8 +38,8 @@
 
             <ComboBox x:Name="cbxAccount"
                           DisplayMemberPath="AccountName"
-                          ItemsSource="{Binding Account.AccountName}"
-                          SelectedValue="{Binding Account.AccountName, ValidatesOnDataErrors=True}"
+                          ItemsSource="{Binding Accounts}"
+                          SelectedValue="{Binding Accounts, ValidatesOnDataErrors=True}"
                           Margin="5" Background="White" />
 
             <Button x:Name="txtBill" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Bill" Content="Create your bill here" />

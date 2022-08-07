@@ -11,7 +11,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class AccountViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public Account? Account { get; set; }
+        public ObservableCollection<Account>? Accounts { get; set; }
 
         public Account? SelectedAccount { get; set; }
 
@@ -20,6 +20,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public override bool CanExecute(object parameter)
         {
             return true;
+        }
+
+        public AccountViewModel()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
         }
 
         public override void Execute(object parameter)
@@ -42,17 +47,23 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenActionWindow()
         {
+            if (SelectedAccount != null)
+            {
+                ActionViewModel actionViewModel = new ActionViewModel();
+                View.ActionView actionView = new View.ActionView();
+                actionView.DataContext = actionViewModel;
+                actionView.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a bill first", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void Dispose()
         {
             unitOfWork?.Dispose();
         }
-
-        //ActionViewModel actionViewModel = new ActionViewModel();
-        //View.ActionView actionView = new View.ActionView();
-        //actionView.DataContext = actionViewModel;
-        //actionView.Show();
 
         private void Back()
         {

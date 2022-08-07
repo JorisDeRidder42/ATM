@@ -17,11 +17,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public int? ClientID { get; set; }
-        public string? ClientEmail { get; set; }
-        public string? Password { get; set; }
-        public bool? IsAdmin { get; set; }
-        public string? foutmelding { get; set; }
         public Client? Client { get; set; }
+        public string? foutmelding { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
         public LoginViewModel()
@@ -74,13 +71,13 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 {
                     if (client.IsAdmin == false)
                     {
-                        unitOfWork.ClientRepo.Ophalen();
-                        OpenActionWindow();
+                        RefreshData();
+                        OpenAccountWindow();
                     }
                     else
                     {
                         MessageBox.Show($"You are now logged in As ADMIN", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                        unitOfWork.ClientRepo.Ophalen();
+                        RefreshData();
                         openAdminWindow();
                     }
                 }
@@ -108,13 +105,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             unitOfWork?.Dispose();
         }
 
-        public void OpenActionWindow()
+        public void OpenAccountWindow()
         {
-            //ActionViewModel actionViewModel = new ActionViewModel();
-            //View.ActionView actionView = new View.ActionView();
-            //actionView.DataContext = actionViewModel;
-            //actionView.Show();
-
             AccountViewModel aViewModel = new AccountViewModel();
             View.AccountView aView = new View.AccountView();
             aView.DataContext = aViewModel;
@@ -127,6 +119,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.AdminView adminView = new View.AdminView();
             adminView.DataContext = adminViewModel;
             adminView.Show();
+        }
+
+        public void RefreshData()
+        {
+            unitOfWork.ClientRepo.Ophalen();
         }
     }
 }

@@ -34,10 +34,10 @@
                 <Label x:Name="lblAname" Foreground="White">Account name</Label>
                 <TextBox x:Name="txtAname" Foreground="Black" Background="White" Padding="10" Text="{Binding Account.AccountName}" />
                 <Label x:Name="lblAamount" Foreground="White">Amount</Label>
-                <TextBox x:Name="txtAamount" Foreground="Black" Background="White" Padding="10" Text="{Binding Account.Amount}" />
+                <TextBox x:Name="txtAamount" Foreground="Black" Background="White" Padding="10" Text="{Binding Account.AccountAmount}" />
                 <Label  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center"  Foreground="Red" Content="{Binding foutmelding}" />
-
-                <Button x:Name="lblAccount" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"  Grid.RowSpan="2" Width="182" Command="{Binding}" CommandParameter="Create">Create bill</Button>
+                <CheckBox x:Name="cb1" Content="Duo account" IsChecked="{Binding Account.DuoAccount}" />
+                <Button x:Name="lblAccount" Grid.Column="1" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0"  Grid.RowSpan="2" Width="182" Command="{Binding}" CommandParameter="Create">Create</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

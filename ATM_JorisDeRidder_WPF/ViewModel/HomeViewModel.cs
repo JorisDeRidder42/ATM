@@ -16,8 +16,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public override bool CanExecute(object parameter)
         {
-            //returnwaarde true -> methode mag uitgevoerd worden
-            //returnwaarde false -> methode mag niet uitgevoerd worden
             switch (parameter.ToString())
             {
                 case "Register": return true;

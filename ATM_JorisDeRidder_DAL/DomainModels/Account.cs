@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ATM_JorisDeRidder_DAL.DomainModels
 {
     [Table("Accounts")]
-    public class Account
+    public class Account : Basisklasse
     {
         public int AccountID { get; set; }
 

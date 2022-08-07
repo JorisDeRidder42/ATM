@@ -17,16 +17,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public Client? Client { get; set; }
         public int? ClientID { get; set; }
-        public string? ClientName { get; set; }
-        public string? ClientEmail { get; set; }
-        public string? Password { get; set; }
-        public string? ConfirmPassword { get; set; }
-        public string? City { get; set; }
-        public string? Street { get; set; }
-        public string? HouseNumber { get; set; }
-        public string? BirthDate { get; set; }
-        public bool? IsAdmin { get; set; }
-        public string? ZipCode { get; set; }
         public Card? Card { get; private set; }
         public string? foutmelding { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
@@ -110,6 +100,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.LoginView lview = new View.LoginView();
             lview.DataContext = lviewModel;
             lview.Show();
+            View.RegisterView registerView = new View.RegisterView();
+            registerView.Close();
         }
 
         private void RefreshData()

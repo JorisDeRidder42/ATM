@@ -12,19 +12,48 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public ObservableCollection<Account>? Accounts { get; set; }
+        public ObservableCollection<Client>? Clients { get; set; }
 
-        public Account? SelectedAccount { get; set; }
+        public int AccountID { get; set; }
+        public int ClientID { get; set; }
+
+        public Account AccountRecord { get; set; }
+
+        private Account _selectAccount;
+
+        public Account? SelectedAccount
+        {
+            get { return _selectAccount; }
+            set
+            {
+                _selectAccount = value;
+                AccountSelecteren();
+            }
+        }
+
+        public AccountViewModel()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+            //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID));
+        }
+
+        private void AccountSelecteren()
+        {
+            if (SelectedAccount != null)
+            {
+                AccountRecord = SelectedAccount;
+            }
+            else
+            {
+                AccountRecord = new Account();
+            }
+        }
 
         public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {
             return true;
-        }
-
-        public AccountViewModel()
-        {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
         }
 
         public override void Execute(object parameter)
@@ -45,7 +74,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             createAccountView.Show();
         }
 
-        public void OpenActionWindow()
+        public void OpenActionWindow(int? clientID = null)
         {
             if (SelectedAccount != null)
             {
@@ -56,7 +85,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
             else
             {
-                MessageBox.Show("Select a bill first", "Foutmelding", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select a bill first", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

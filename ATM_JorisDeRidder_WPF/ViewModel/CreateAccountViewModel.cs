@@ -15,11 +15,19 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
-        public Account? Account { get; set; }
         public ICollection<Account>? Accounts { get; set; }
+        public ICollection<Client>? Clients { get; set; }
+        public Account? Account { get; set; }
+
+        public Account SelectedAccount { get; set; }
 
         public int AccountID { get; set; }
         public override string this[string columnName] => "";
+
+        public CreateAccountViewModel(int clientID)
+        {
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID));
+        }
 
         public override bool CanExecute(object parameter)
         {
@@ -36,13 +44,23 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             switch (parameter.ToString())
             {
                 case "Back": Back(); break;
+                case "Create": CreateNewAccount(); break;
             }
         }
 
-        //private void RefreshData()
-        //{
-        //    Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
-        //}
+        private void CreateNewAccount()
+        {
+            OpenActionView();
+            unitOfWork.AccountRepo.Toevoegen(Account);
+            unitOfWork.Save();
+            RefreshData();
+            MessageBox.Show("Account added", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void RefreshData()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+        }
 
         private void Back()
         {

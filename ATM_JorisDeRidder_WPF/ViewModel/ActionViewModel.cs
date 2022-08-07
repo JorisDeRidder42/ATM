@@ -16,6 +16,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
 
         public Client Client { get; set; }
+
+        public int ClientID { get; set; }
         public override string this[string columnName] => "";
         public ObservableCollection<Client>? Clients { get; set; }
 
@@ -35,6 +37,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Cash": Cash(); break;
                 case "Logs": Logs(); break;
             }
+        }
+
+        public ActionViewModel(int clientID)
+        {
+            Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID).SingleOrDefault();
         }
 
         private void Logs()

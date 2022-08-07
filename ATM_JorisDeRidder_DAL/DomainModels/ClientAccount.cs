@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JullieZijnGeslaagd_DAL.BasisModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace ATM_JorisDeRidder_DAL.DomainModels
 {
     [Table("Clientaccounts")]
-    public class ClientAccount
+    public class ClientAccount : Basisklasse
     {
         public int ClientAccountID { get; set; }
 

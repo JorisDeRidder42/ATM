@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JullieZijnGeslaagd_DAL.BasisModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace ATM_JorisDeRidder_DAL.DomainModels
 {
     [Table("Transactions")]
-    public class Transaction
+    public class Transaction : Basisklasse
     {
         public int TransactionID { get; set; }
         public TransactionType TransactionTypeID { get; set; }

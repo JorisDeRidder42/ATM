@@ -24,11 +24,5 @@ namespace ATM_JorisDeRidder_WPF.View
         {
             InitializeComponent();
         }
-
-        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
     }
 }

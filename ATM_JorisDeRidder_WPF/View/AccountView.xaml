@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
-        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls" xmlns:viewmodel="clr-namespace:ATM_JorisDeRidder_WPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:AccountViewModel}"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
+        xmlns:viewmodel="clr-namespace:ATM_JorisDeRidder_WPF.ViewModel"
         mc:Ignorable="d"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -39,8 +40,8 @@
             <ComboBox x:Name="cbxAccount"
                           DisplayMemberPath="AccountName"
                           ItemsSource="{Binding Accounts}"
-                          SelectedValue="{Binding Accounts, ValidatesOnDataErrors=True}"
-                          Margin="5" Background="White" />
+                          SelectedValue="{Binding SelectedAccount}"
+                          Margin="10" />
 
             <Button x:Name="txtBill" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Bill" Content="Create your bill here" />
             <Button x:Name="lblGo"  Margin="10" Grid.RowSpan="2" Command="{Binding}" CommandParameter="Go" Content="Go" />

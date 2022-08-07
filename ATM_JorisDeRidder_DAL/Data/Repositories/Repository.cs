@@ -54,7 +54,7 @@ namespace ATM_JorisDeRidder_DAL.Data.Repositories
             {
                 query = query.Where(voorwaarden);
             }
-            return query.ToList();
+            §return query.ToList();
         }
 
         public IEnumerable<T> Ophalen(Expression<Func<T, bool>> voorwaarden)

@@ -19,14 +19,27 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public ICollection<Client>? Clients { get; set; }
         public Account? Account { get; set; }
 
-        public Account SelectedAccount { get; set; }
+        public Account? SelectedAccount { get; set; }
+
+        public string AccountName { get; set; }
+        public int AccountAmount { get; set; }
 
         public int AccountID { get; set; }
+
+        public string? foutmelding { get; set; }
         public override string this[string columnName] => "";
 
-        public CreateAccountViewModel(int clientID)
+        public CreateAccountViewModel()
         {
-            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID));
+            if (AccountID != null)
+            {
+                //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+                Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.AccountID, x => x.AccountName, x => x.AccountAmount));
+            }
+            else
+            {
+                Account = new Account();
+            }
         }
 
         public override bool CanExecute(object parameter)
@@ -50,11 +63,18 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void CreateNewAccount()
         {
-            OpenActionView();
-            unitOfWork.AccountRepo.Toevoegen(Account);
-            unitOfWork.Save();
-            RefreshData();
-            MessageBox.Show("Account added", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (AccountID != null)
+            {
+                Account = new Account();
+                if (Account.IsGeldig())
+                {
+                    unitOfWork.AccountRepo.Toevoegen(Account);
+                    unitOfWork.Save();
+                    RefreshData();
+                    MessageBox.Show("Account added", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+                    OpenActionView();
+                }
+            }
         }
 
         private void RefreshData()

@@ -18,6 +18,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public int? ClientID { get; set; }
         public Client? Client { get; set; }
+        public string ClientEmail { get; set; }
+        public string Password { get; set; }
         public string? foutmelding { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 

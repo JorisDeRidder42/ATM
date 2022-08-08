@@ -17,9 +17,9 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public int AccountID { get; set; }
         public int ClientID { get; set; }
 
-        public Account AccountRecord { get; set; }
+        public Account? AccountRecord { get; set; }
 
-        private Account _selectAccount;
+        private Account? _selectAccount;
 
         public Account? SelectedAccount
         {

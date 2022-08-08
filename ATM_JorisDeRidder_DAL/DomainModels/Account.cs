@@ -19,6 +19,7 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
 
         public bool DuoAccount { get; set; }
 
+        [Required]
         public int AccountAmount { get; set; }
 
         public int BalanceID { get; set; }

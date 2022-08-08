@@ -72,6 +72,7 @@
     <Compile Include="DomainModels\Card.cs" />
     <Compile Include="DomainModels\Client.cs" />
     <Compile Include="DomainModels\ClientAccount.cs" />
+    <Compile Include="DomainModels\DataManager.cs" />
     <Compile Include="DomainModels\Log.cs" />
     <Compile Include="DomainModels\Transaction.cs" />
     <Compile Include="DomainModels\TransactionType.cs" />
@@ -90,6 +91,10 @@
     <Compile Include="Migrations\202208060859241_ChangeFK.cs" />
     <Compile Include="Migrations\202208060859241_ChangeFK.designer.cs">
       <DependentUpon>202208060859241_ChangeFK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208081754181_changeAccount.cs" />
+    <Compile Include="Migrations\202208081754181_changeAccount.designer.cs">
+      <DependentUpon>202208081754181_changeAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208060859241_ChangeFK.resx">
       <DependentUpon>202208060859241_ChangeFK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081754181_changeAccount.resx">
+      <DependentUpon>202208081754181_changeAccount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

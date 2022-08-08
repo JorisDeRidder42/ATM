@@ -17,8 +17,18 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public Client? Client { get; set; }
         public int? ClientID { get; set; }
-        public Card? Card { get; private set; }
         public string? foutmelding { get; set; }
+        public string ClientName { get; set; }
+        public string ClientEmail { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string HouseNumber { get; set; }
+        public string ZipCode { get; set; }
+        public bool IsAdmin { get; set; }
+        public string BirthDate { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
         public RegisterViewModel(int? clientID = null)

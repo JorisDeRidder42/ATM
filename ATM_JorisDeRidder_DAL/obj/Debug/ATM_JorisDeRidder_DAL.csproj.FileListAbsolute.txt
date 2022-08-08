@@ -38,5 +38,6 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CopyComplete
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.pdb
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.changeAccount.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\PropertyChanged.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\PropertyChanged.xml

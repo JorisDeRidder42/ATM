@@ -96,6 +96,10 @@
     <Compile Include="Migrations\202208081754181_changeAccount.designer.cs">
       <DependentUpon>202208081754181_changeAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208092016102_fixClientAccountLink.cs" />
+    <Compile Include="Migrations\202208092016102_fixClientAccountLink.designer.cs">
+      <DependentUpon>202208092016102_fixClientAccountLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -118,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208081754181_changeAccount.resx">
       <DependentUpon>202208081754181_changeAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208092016102_fixClientAccountLink.resx">
+      <DependentUpon>202208092016102_fixClientAccountLink.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

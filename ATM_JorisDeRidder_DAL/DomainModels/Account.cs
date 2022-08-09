@@ -26,7 +26,9 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public int TransactionID { get; set; }
 
         public ICollection<Card> Cards { get; set; }
+        public ICollection<ClientAccount> ClientAccounts { get; set; }
         public Balance Balance { get; set; }
         public Transaction Transaction { get; set; }
+        //.select -> terug navigeren naar ...
     }
 }

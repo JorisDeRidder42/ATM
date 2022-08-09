@@ -14,12 +14,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class CreateAccountViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-
-        public ICollection<Account>? Accounts { get; set; }
-        public ICollection<Client>? Clients { get; set; }
-        public Account? Account { get; set; }
-
-        public Account? SelectedAccount { get; set; }
+        public ICollection<Account> Accounts { get; set; }
+        public ICollection<Client> Clients { get; set; }
+        public Account Account { get; set; }
+        public Client Client { get; set; }
+        public Account SelectedAccount { get; set; }
 
         public string AccountName { get; set; }
         public int AccountAmount { get; set; }
@@ -29,13 +28,15 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? foutmelding { get; set; }
         public override string this[string columnName] => "";
 
-        public CreateAccountViewModel()
+        public CreateAccountViewModel(int? accountID = null)
         {
             if (AccountID != null)
             {
                 //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
-                Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.AccountID, x => x.AccountName, x => x.AccountAmount));
+                Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == accountID, x => x.ClientAccounts.Select(y => y.Client)).SingleOrDefault();
             }
+            //select enkelvoud
+            //x => x.benaming  voor meervoud
             else
             {
                 Account = new Account();

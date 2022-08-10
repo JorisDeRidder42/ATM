@@ -23,11 +23,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? foutmelding { get; set; }
         public ObservableCollection<Client>? Clients { get; set; }
 
-        public LoginViewModel()
+        public LoginViewModel(int? clientID = null)
         {
             if (ClientID != null)
             {
-                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
+                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
             }
             else
             {
@@ -85,12 +85,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 }
                 else
                 {
-                    foutmelding = "Email or password dont match";
+                    foutmelding = "Email or password doesn't match";
                 }
             }
             else
             {
-                foutmelding = "Email or password dont match";
+                foutmelding = "Email or password doesn't match";
             }
         }
 

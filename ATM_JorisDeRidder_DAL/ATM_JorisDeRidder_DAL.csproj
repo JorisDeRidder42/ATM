@@ -72,7 +72,6 @@
     <Compile Include="DomainModels\Card.cs" />
     <Compile Include="DomainModels\Client.cs" />
     <Compile Include="DomainModels\ClientAccount.cs" />
-    <Compile Include="DomainModels\DataManager.cs" />
     <Compile Include="DomainModels\Log.cs" />
     <Compile Include="DomainModels\Transaction.cs" />
     <Compile Include="DomainModels\TransactionType.cs" />

@@ -40,7 +40,7 @@
             <ComboBox x:Name="cbxAccount"
                           DisplayMemberPath="AccountName"
                           ItemsSource="{Binding Accounts}"
-                          SelectedValue="{Binding SelectedAccount}"
+                          SelectedValue="{Binding Accounts.AccountID}"
                           Margin="10" />
 
             <Button x:Name="txtBill" Style="{DynamicResource RoundedButtonStyle}" Foreground="#4FC5FF" Background="Transparent" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Bill" Content="Create your bill here" />

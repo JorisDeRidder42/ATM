@@ -35,7 +35,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             if (clientID != null)
             {
-                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
+                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
             }
             else
             {

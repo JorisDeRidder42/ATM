@@ -15,7 +15,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public ICollection<Account> Accounts { get; set; }
-        public ICollection<Client> Clients { get; set; }
         public Account Account { get; set; }
         public Client Client { get; set; }
         public Account SelectedAccount { get; set; }
@@ -32,15 +31,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             if (AccountID != null)
             {
-                //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
-                Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == accountID, x => x.ClientAccounts.Select(y => y.Client)).SingleOrDefault();
+                //Client = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientAccounts.Select(y => y.Account))).SingleOrDefault();
             }
             //select enkelvoud
             //x => x.benaming  voor meervoud
-            else
-            {
-                Account = new Account();
-            }
         }
 
         public override bool CanExecute(object parameter)

@@ -40,3 +40,5 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.pdb
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.changeAccount.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.fixClientAccountLink.resources
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\PropertyChanged.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\PropertyChanged.xml

@@ -33,7 +33,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public AccountViewModel()
         {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientAccounts));
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
             //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID));
         }
 

@@ -14,9 +14,9 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
         private IRepository<Account> _accountRepo;
         private IRepository<Card> _cardRepo;
         private IRepository<Transaction> _transactionRepo;
-        private IRepository<Log> _logRepo;
+        private IRepository<CardType> _cardtypeRepo;
         private IRepository<TransactionType> _transactiontypeRepo;
-        private IRepository<ClientAccount> _clientAccountRepo;
+        private IRepository<CardAccount> _cardAccountRepo;
         private IRepository<Balance> _balanceRepo;
 
         public UnitOfWork(ATM_JorisDeRidderEntities atm_JorisDeRidderEntities)
@@ -62,27 +62,27 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
             }
         }
 
-        public IRepository<ClientAccount> ClientAccountRepo
+        public IRepository<CardAccount> CardAccountRepo
         {
             get
             {
-                if (_clientAccountRepo == null)
+                if (_cardAccountRepo == null)
                 {
-                    _clientAccountRepo = new Repository<ClientAccount>(this.ATM_JorisDeRidderEntities);
+                    _cardAccountRepo = new Repository<CardAccount>(this.ATM_JorisDeRidderEntities);
                 }
-                return _clientAccountRepo;
+                return _cardAccountRepo;
             }
         }
 
-        public IRepository<Log> LogRepo
+        public IRepository<CardType> CardtypeRepo
         {
             get
             {
-                if (_logRepo == null)
+                if (_cardtypeRepo == null)
                 {
-                    _logRepo = new Repository<Log>(this.ATM_JorisDeRidderEntities);
+                    _cardtypeRepo = new Repository<CardType>(this.ATM_JorisDeRidderEntities);
                 }
-                return _logRepo;
+                return _cardtypeRepo;
             }
         }
 

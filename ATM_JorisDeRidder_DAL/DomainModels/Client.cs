@@ -45,6 +45,6 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
 
         public string BirthDate { get; set; }
 
-        public ICollection<ClientAccount> ClientAccounts { get; set; }
+        public ICollection<Account> Accounts { get; set; }
     }
 }

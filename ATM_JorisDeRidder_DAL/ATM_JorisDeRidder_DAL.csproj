@@ -70,34 +70,14 @@
     <Compile Include="DomainModels\Account.cs" />
     <Compile Include="DomainModels\Balance.cs" />
     <Compile Include="DomainModels\Card.cs" />
+    <Compile Include="DomainModels\CardType.cs" />
     <Compile Include="DomainModels\Client.cs" />
-    <Compile Include="DomainModels\ClientAccount.cs" />
-    <Compile Include="DomainModels\Log.cs" />
+    <Compile Include="DomainModels\CardAccount.cs" />
     <Compile Include="DomainModels\Transaction.cs" />
     <Compile Include="DomainModels\TransactionType.cs" />
-    <Compile Include="Migrations\202208051647400_InitialCreate.cs" />
-    <Compile Include="Migrations\202208051647400_InitialCreate.designer.cs">
-      <DependentUpon>202208051647400_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208051727340_changeDB.cs" />
-    <Compile Include="Migrations\202208051727340_changeDB.designer.cs">
-      <DependentUpon>202208051727340_changeDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208051736318_changeDB2.cs" />
-    <Compile Include="Migrations\202208051736318_changeDB2.designer.cs">
-      <DependentUpon>202208051736318_changeDB2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208060859241_ChangeFK.cs" />
-    <Compile Include="Migrations\202208060859241_ChangeFK.designer.cs">
-      <DependentUpon>202208060859241_ChangeFK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208081754181_changeAccount.cs" />
-    <Compile Include="Migrations\202208081754181_changeAccount.designer.cs">
-      <DependentUpon>202208081754181_changeAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202208092016102_fixClientAccountLink.cs" />
-    <Compile Include="Migrations\202208092016102_fixClientAccountLink.designer.cs">
-      <DependentUpon>202208092016102_fixClientAccountLink.cs</DependentUpon>
+    <Compile Include="Migrations\202208111916182_InitialCreate.cs" />
+    <Compile Include="Migrations\202208111916182_InitialCreate.designer.cs">
+      <DependentUpon>202208111916182_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,23 +87,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202208051647400_InitialCreate.resx">
-      <DependentUpon>202208051647400_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208051727340_changeDB.resx">
-      <DependentUpon>202208051727340_changeDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208051736318_changeDB2.resx">
-      <DependentUpon>202208051736318_changeDB2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208060859241_ChangeFK.resx">
-      <DependentUpon>202208060859241_ChangeFK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208081754181_changeAccount.resx">
-      <DependentUpon>202208081754181_changeAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202208092016102_fixClientAccountLink.resx">
-      <DependentUpon>202208092016102_fixClientAccountLink.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202208111916182_InitialCreate.resx">
+      <DependentUpon>202208111916182_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

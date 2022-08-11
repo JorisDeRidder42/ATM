@@ -40,7 +40,6 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
             <Button Margin="10" Command="{Binding}" CommandParameter="Withdraw">Withdraw</Button>
-            <Button Margin="10" Command="{Binding}" CommandParameter="Logs">Logs</Button>
             <Button Margin="10" Command="{Binding}" CommandParameter="Balance">Balance</Button>
         </StackPanel>
         <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontWeight="Bold" Background="Transparent" Foreground="White" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Logout" VerticalAlignment="Center">Logout</Button>

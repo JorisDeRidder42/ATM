@@ -14,6 +14,6 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         public int BalanceID { get; set; }
         public int BalanceAmount { get; set; }
 
-        public ICollection<Account> accounts { get; set; }
+        public ICollection<Account> Accounts { get; set; }
     }
 }

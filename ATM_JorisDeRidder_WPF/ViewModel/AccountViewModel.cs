@@ -5,49 +5,24 @@ using System;
 using System.Collections.ObjectModel;
 using ATM_JorisDeRidder_DAL;
 using System.Windows;
+using System.Linq;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
     public class AccountViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public ObservableCollection<Account>? Accounts { get; set; }
-        public ObservableCollection<Client>? Clients { get; set; }
-
+        public Account Account { get; set; }
+        public Client Client { get; set; }
         public int AccountID { get; set; }
         public int ClientID { get; set; }
+        public string SelectedAccount { get; set; }
+        public ObservableCollection<Client> Clients { get; set; }
 
-        public Account? AccountRecord { get; set; }
-
-        private Account? _selectAccount;
-
-        public Account? SelectedAccount
+        public AccountViewModel(int clientID)
         {
-            get { return _selectAccount; }
-            set
-            {
-                _selectAccount = value;
-                AccountSelecteren();
-            }
-        }
-
-        public AccountViewModel()
-        {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientAccounts));
-            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
-            //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID));
-        }
-
-        private void AccountSelecteren()
-        {
-            if (SelectedAccount != null)
-            {
-                AccountRecord = SelectedAccount;
-            }
-            else
-            {
-                AccountRecord = new Account();
-            }
+            //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID, x => x.Accounts.Select(y => y.AccountName)).SingleOrDefault();
+            Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
         }
 
         public override string this[string columnName] => "";
@@ -75,7 +50,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             createAccountView.Show();
         }
 
-        public void OpenActionWindow(int? clientID = null)
+        public void OpenActionWindow()
         {
             if (SelectedAccount != null)
             {

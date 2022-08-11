@@ -17,18 +17,18 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         [Required]
         public string AccountName { get; set; }
 
-        public bool DuoAccount { get; set; }
-
         [Required]
         public int AccountAmount { get; set; }
 
         public int BalanceID { get; set; }
         public int TransactionID { get; set; }
+        public int ClientID { get; set; }
 
-        public ICollection<Card> Cards { get; set; }
-        public ICollection<ClientAccount> ClientAccounts { get; set; }
+        public Client Client { get; set; }
         public Balance Balance { get; set; }
         public Transaction Transaction { get; set; }
+        public ICollection<CardAccount> CardAccounts { get; set; }
+
         //.select -> terug navigeren naar ...
     }
 }

@@ -35,21 +35,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Withdraw": Withdraw(); break;
                 case "Balance": Balance(); break;
                 case "Cash": Cash(); break;
-                case "Logs": Logs(); break;
             }
         }
 
         public ActionViewModel()
         {
             Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID).SingleOrDefault();
-        }
-
-        private void Logs()
-        {
-            LogViewModel logViewModel = new LogViewModel();
-            View.LogView logView = new View.LogView();
-            logView.DataContext = logViewModel;
-            logView.Show();
         }
 
         private void Cash()

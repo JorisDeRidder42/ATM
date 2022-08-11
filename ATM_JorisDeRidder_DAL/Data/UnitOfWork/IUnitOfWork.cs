@@ -14,10 +14,10 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
         IRepository<Card> CardRepo { get; }
         IRepository<Account> AccountRepo { get; }
         IRepository<Balance> BalanceRepo { get; }
-        IRepository<Log> LogRepo { get; }
+        IRepository<CardType> CardtypeRepo { get; }
         IRepository<Transaction> TransactionRepo { get; }
         IRepository<TransactionType> TransactiontypeRepo { get; }
-        IRepository<ClientAccount> ClientAccountRepo { get; }
+        IRepository<CardAccount> CardAccountRepo { get; }
 
         int Save();
     }

@@ -14,9 +14,8 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
     {
         public int CardID { get; set; }
         public string CardName { get; set; }
-        public int LogID { get; set; }
-        public int AccountID { get; set; }
-        public Account Account { get; set; }
-        public Log Log { get; set; }
+        public int CardTypeID { get; set; }
+        public CardType CardType { get; set; }
+        public ICollection<CardAccount> CardAccounts { get; set; }
     }
 }

@@ -21,7 +21,18 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string ClientEmail { get; set; }
         public string Password { get; set; }
         public string? foutmelding { get; set; }
+
+        private Client selectedClient;
         public ObservableCollection<Client>? Clients { get; set; }
+
+        public Client SelectedReeks
+        {
+            get => selectedClient;
+            set
+            {
+                selectedClient = value;
+            }
+        }
 
         public LoginViewModel(int? clientID = null)
         {
@@ -96,7 +107,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void OpenRegisterPage()
         {
-            RegisterViewModel registerViewModel = new RegisterViewModel();
+            RegisterViewModel registerViewModel = new RegisterViewModel(selectedClient.ClientID);
             View.RegisterView rview = new View.RegisterView();
             rview.DataContext = registerViewModel;
             rview.Show();
@@ -109,7 +120,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenAccountWindow()
         {
-            AccountViewModel aViewModel = new AccountViewModel();
+            AccountViewModel aViewModel = new AccountViewModel(selectedClient.ClientID);
             View.AccountView aView = new View.AccountView();
             aView.DataContext = aViewModel;
             aView.Show();
@@ -117,7 +128,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void openAdminWindow()
         {
-            AdminViewModel adminViewModel = new AdminViewModel();
+            AdminViewModel adminViewModel = new AdminViewModel(selectedClient.ClientID);
             View.AdminView adminView = new View.AdminView();
             adminView.DataContext = adminViewModel;
             adminView.Show();

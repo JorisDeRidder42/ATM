@@ -16,13 +16,30 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public Client Client { get; set; }
         public int AccountID { get; set; }
         public int ClientID { get; set; }
-        public string SelectedAccount { get; set; }
+        public string SelectedClient { get; set; }
+        private string selectedClient { get; set; }
+
+        private Account selectedAccount;
+
+        public Account SelectedAccount
+        {
+            get => selectedAccount;
+            set
+            {
+                selectedAccount = value;
+            }
+        }
+
         public ObservableCollection<Client> Clients { get; set; }
 
-        public AccountViewModel(int clientID)
+        public AccountViewModel(int? clientID)
         {
+            if (clientID == null)
+            {
+                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID, y => y.Accounts.Select(z => z.AccountName)).SingleOrDefault();
+            }
+            //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
             //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID, x => x.Accounts.Select(y => y.AccountName)).SingleOrDefault();
-            Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
         }
 
         public override string this[string columnName] => "";

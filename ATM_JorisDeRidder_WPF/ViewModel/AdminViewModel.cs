@@ -13,12 +13,23 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class AdminViewModel : BasisViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public ObservableCollection<Client> Clients { get; set; }
+        public Client Client { get; set; }
         public override string this[string columnName] => "";
 
-        public AdminViewModel()
+        private Client selectedClient;
+
+        public Client SelectedReeks
         {
-            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+            get => selectedClient;
+            set
+            {
+                selectedClient = value;
+            }
+        }
+
+        public AdminViewModel(int clientID)
+        {
+            Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
         }
 
         public override bool CanExecute(object parameter)

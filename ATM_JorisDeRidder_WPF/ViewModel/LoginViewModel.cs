@@ -23,9 +23,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? foutmelding { get; set; }
 
         private Client selectedClient;
-        public ObservableCollection<Client>? Clients { get; set; }
 
-        public Client SelectedReeks
+        public Client SelectedClient
         {
             get => selectedClient;
             set

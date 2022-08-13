@@ -18,8 +18,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public int? ClientID { get; set; }
         public Client? Client { get; set; }
-        public string ClientEmail { get; set; }
-        public string Password { get; set; }
+        public string? ClientEmail { get; set; }
+        public string? Password { get; set; }
         public string? foutmelding { get; set; }
 
         public LoginViewModel(int? clientID = null)
@@ -119,7 +119,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void RefreshData()
         {
-            Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
+            //Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
         }
 
         public void Dispose()

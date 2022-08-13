@@ -13,26 +13,41 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public Account Account { get; set; }
+        public int? ClientID { get; set; }
         public Client Client { get; set; }
-        public int AccountID { get; set; }
-        public int ClientID { get; set; }
+        public Collection<Account> Accounts { get; set; }
+        public Account? AccountRecord { get; set; }
 
-        public Account selectedAccount { get; set; }
+        private Account? _selectAccount;
 
-        //public Client selectedClient { get; set; }
-        public ObservableCollection<Client> Clients { get; set; }
-
-        public AccountViewModel(int? clientID = null)
+        public Account? SelectedAccount
         {
-            if (clientID == null)
+            get { return _selectAccount; }
+            set
             {
-                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+                _selectAccount = value;
+                AccountSelecteren();
             }
-            //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
-            //Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID, x => x.Accounts.Select(y => y.AccountName)).SingleOrDefault();
         }
 
         public override string this[string columnName] => "";
+
+        public AccountViewModel()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+        }
+
+        private void AccountSelecteren()
+        {
+            if (SelectedAccount != null)
+            {
+                AccountRecord = SelectedAccount;
+            }
+            else
+            {
+                AccountRecord = new Account();
+            }
+        }
 
         public override bool CanExecute(object parameter)
         {
@@ -49,6 +64,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
         }
 
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
+        }
+
         private void CreateNewBill()
         {
             CreateAccountViewModel createAccountViewModel = new CreateAccountViewModel();
@@ -59,7 +79,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenActionWindow()
         {
-            if (selectedAccount != null)
+            if (SelectedAccount != null)
             {
                 ActionViewModel actionViewModel = new ActionViewModel();
                 View.ActionView actionView = new View.ActionView();
@@ -69,12 +89,8 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             else
             {
                 MessageBox.Show("Select a bill first", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
-        }
-
-        public void Dispose()
-        {
-            unitOfWork?.Dispose();
         }
 
         private void Back()

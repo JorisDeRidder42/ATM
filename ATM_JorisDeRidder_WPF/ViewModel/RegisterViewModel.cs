@@ -14,22 +14,20 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class RegisterViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-
         public Client? Client { get; set; }
         public int? ClientID { get; set; }
         public string? foutmelding { get; set; }
-        public string ClientName { get; set; }
-        public string ClientEmail { get; set; }
-        public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
-        public string HouseNumber { get; set; }
-        public string ZipCode { get; set; }
-        public bool IsAdmin { get; set; }
-        public string BirthDate { get; set; }
-        public ObservableCollection<Client>? Clients { get; set; }
+        public string? ClientName { get; set; }
+        public string? ClientEmail { get; set; }
+        public string? Password { get; set; }
+        public string? ConfirmPassword { get; set; }
+        public string? Country { get; set; }
+        public string? City { get; set; }
+        public string? Street { get; set; }
+        public string? HouseNumber { get; set; }
+        public string? ZipCode { get; set; }
+        public bool? IsAdmin { get; set; }
+        public string? BirthDate { get; set; }
 
         public RegisterViewModel(int? clientID = null)
         {
@@ -111,7 +109,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void RefreshData()
         {
-            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+            //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
         }
 
         public void Dispose()

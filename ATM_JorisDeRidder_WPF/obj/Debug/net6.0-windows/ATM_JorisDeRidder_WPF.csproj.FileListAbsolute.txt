@@ -32,7 +32,6 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\HomeView.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.csproj.Fody.CopyLocal.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.csproj.Fody.RuntimeCopyLocal.cache
-C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.csproj.AssemblyReference.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\userControls\Footer.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\userControls\FooterBack.g.cs
@@ -56,6 +55,7 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.dll.config
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.deps.json
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.runtimeconfig.json
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_WPF.pdb
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\EntityFramework.dll

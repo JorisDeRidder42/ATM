@@ -40,10 +40,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public ActionViewModel(int? clientID = null)
         {
-            if (clientID != null)
-            {
-                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
-            }
+            //if (clientID != null)
+            //{
+            //}
+            //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID));
         }
 
         private void Cash()

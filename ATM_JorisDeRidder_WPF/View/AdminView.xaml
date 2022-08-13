@@ -33,7 +33,7 @@
         <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="3" />
         <DataGrid x:Name="datagridClient" AutoGenerateColumns="True" Grid.Row="1" Grid.Column="0"
                   ItemsSource="{Binding Clients}"
-                  SelectedItem="{Binding SelectedClients}" Margin="5"
+                  SelectedItem="{Binding SelectedClient}" Margin="5"
                   IsReadOnly="true"
                   Grid.ColumnSpan="4" Grid.RowSpan="2">
             <DataGrid.Columns>

@@ -72,14 +72,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 {
                     if (client.IsAdmin == false)
                     {
-                        RefreshData();
                         OpenAccountWindow();
+                        RefreshData();
                     }
                     else
                     {
                         MessageBox.Show($"You are now logged in As ADMIN", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                        RefreshData();
                         openAdminWindow();
+                        RefreshData();
                     }
                 }
                 else
@@ -119,7 +119,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void RefreshData()
         {
-            unitOfWork.ClientRepo.Ophalen();
+            Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
         }
 
         public void Dispose()

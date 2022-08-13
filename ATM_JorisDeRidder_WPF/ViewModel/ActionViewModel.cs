@@ -38,7 +38,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
         }
 
-        public ActionViewModel(int? clientID)
+        public ActionViewModel(int? clientID = null)
         {
             if (clientID != null)
             {

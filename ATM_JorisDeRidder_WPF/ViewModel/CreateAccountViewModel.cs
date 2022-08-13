@@ -42,11 +42,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             return true;
         }
 
-        public void Dispose()
-        {
-            unitOfWork?.Dispose();
-        }
-
         public override void Execute(object parameter)
         {
             switch (parameter.ToString())
@@ -72,11 +67,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
         }
 
-        private void RefreshData()
-        {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
-        }
-
         private void Back()
         {
             LoginViewModel lViewModel = new LoginViewModel();
@@ -91,6 +81,16 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.ActionView actionView = new View.ActionView();
             actionView.DataContext = actionViewModel;
             actionView.Show();
+        }
+
+        private void RefreshData()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

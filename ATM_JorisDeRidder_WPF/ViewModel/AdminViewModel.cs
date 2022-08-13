@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
@@ -16,20 +17,16 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public Client Client { get; set; }
         public override string this[string columnName] => "";
 
-        private Client selectedClient;
-
-        public Client SelectedReeks
+        public AdminViewModel(int? clientID = null)
         {
-            get => selectedClient;
-            set
+            if (clientID != null)
             {
-                selectedClient = value;
+                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
             }
-        }
-
-        public AdminViewModel(int clientID)
-        {
-            Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
+            else
+            {
+                MessageBox.Show("Meh");
+            }
         }
 
         public override bool CanExecute(object parameter)

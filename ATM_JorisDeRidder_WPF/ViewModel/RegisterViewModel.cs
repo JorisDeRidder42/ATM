@@ -99,11 +99,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             view.Show();
         }
 
-        public void Dispose()
-        {
-            unitOfWork?.Dispose();
-        }
-
         public void OpenLoginWindow()
         {
             LoginViewModel lviewModel = new LoginViewModel();
@@ -117,6 +112,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private void RefreshData()
         {
             Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

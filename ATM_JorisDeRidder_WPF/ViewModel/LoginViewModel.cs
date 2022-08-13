@@ -22,20 +22,9 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string Password { get; set; }
         public string? foutmelding { get; set; }
 
-        private Client selectedClient;
-
-        public Client SelectedClient
-        {
-            get => selectedClient;
-            set
-            {
-                selectedClient = value;
-            }
-        }
-
         public LoginViewModel(int? clientID = null)
         {
-            if (ClientID != null)
+            if (clientID != null)
             {
                 Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
             }
@@ -106,20 +95,15 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void OpenRegisterPage()
         {
-            RegisterViewModel registerViewModel = new RegisterViewModel(selectedClient.ClientID);
+            RegisterViewModel registerViewModel = new RegisterViewModel();
             View.RegisterView rview = new View.RegisterView();
             rview.DataContext = registerViewModel;
             rview.Show();
         }
 
-        public void Dispose()
-        {
-            unitOfWork?.Dispose();
-        }
-
         public void OpenAccountWindow()
         {
-            AccountViewModel aViewModel = new AccountViewModel(selectedClient.ClientID);
+            AccountViewModel aViewModel = new AccountViewModel();
             View.AccountView aView = new View.AccountView();
             aView.DataContext = aViewModel;
             aView.Show();
@@ -127,7 +111,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void openAdminWindow()
         {
-            AdminViewModel adminViewModel = new AdminViewModel(selectedClient.ClientID);
+            AdminViewModel adminViewModel = new AdminViewModel();
             View.AdminView adminView = new View.AdminView();
             adminView.DataContext = adminViewModel;
             adminView.Show();
@@ -136,6 +120,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public void RefreshData()
         {
             unitOfWork.ClientRepo.Ophalen();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

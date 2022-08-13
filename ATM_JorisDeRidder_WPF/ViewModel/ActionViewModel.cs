@@ -38,9 +38,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
         }
 
-        public ActionViewModel()
+        public ActionViewModel(int? clientID)
         {
-            Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID).SingleOrDefault();
+            if (clientID != null)
+            {
+                Client = unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID).SingleOrDefault();
+            }
         }
 
         private void Cash()

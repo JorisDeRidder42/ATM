@@ -1,5 +1,6 @@
 ﻿using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,11 +23,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Login": return true;
             }
             return true;
-        }
-
-        public void Dispose()
-        {
-            unitOfWork?.Dispose();
         }
 
         public override void Execute(object parameter)
@@ -54,6 +50,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.RegisterView rview = new View.RegisterView();
             rview.DataContext = registerViewModel;
             rview.Show();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

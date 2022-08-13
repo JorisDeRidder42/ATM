@@ -1,6 +1,7 @@
 ﻿using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
 using ATM_JorisDeRidder_DAL.DomainModels;
+using ATM_JorisDeRidder_Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,12 +15,17 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class ActionViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-
-        public Client Client { get; set; }
-
         public int ClientID { get; set; }
+        public Collection<Account> Accounts { get; set; }
+
+        public Account SelectedAccount { get; set; }
+
         public override string this[string columnName] => "";
-        public ObservableCollection<Client>? Clients { get; set; }
+
+        public ActionViewModel()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientID == Session.SelectedItemId));
+        }
 
         public override bool CanExecute(object parameter)
         {
@@ -34,24 +40,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 case "Deposit": Deposit(); break;
                 case "Withdraw": Withdraw(); break;
                 case "Balance": Balance(); break;
-                case "Cash": Cash(); break;
+                case "Delete": DeleteAccount(); break;
             }
         }
 
-        public ActionViewModel(int? clientID = null)
+        private void DeleteAccount()
         {
-            //if (clientID != null)
-            //{
-            //}
-            //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientID == clientID));
-        }
-
-        private void Cash()
-        {
-            CashViewModel cashViewModel = new CashViewModel();
-            View.CashView cashView = new View.CashView();
-            cashView.DataContext = cashViewModel;
-            cashView.Show();
+            SelectedAccount = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
+            unitOfWork.AccountRepo.Verwijderen(SelectedAccount);
         }
 
         private void Balance()

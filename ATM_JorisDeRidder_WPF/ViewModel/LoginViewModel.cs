@@ -9,6 +9,7 @@ using System.Windows.Controls.Primitives;
 using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
 using ATM_JorisDeRidder_DAL.DomainModels;
+using ATM_JorisDeRidder_Model;
 using ATM_JorisDeRidder_WPF.View;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
@@ -16,23 +17,10 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class LoginViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public int? ClientID { get; set; }
-        public Client? Client { get; set; }
-        public string? ClientEmail { get; set; }
-        public string? Password { get; set; }
-        public string? foutmelding { get; set; }
-
-        public LoginViewModel(int? clientID = null)
-        {
-            if (clientID != null)
-            {
-                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
-            }
-            else
-            {
-                Client = new Client();
-            }
-        }
+        public int ClientID { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Foutmelding { get; set; }
 
         public override string this[string columnName]
         {
@@ -58,38 +46,30 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenLogin()
         {
-            var client = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == Client.ClientEmail).SingleOrDefault();
+            var clientCheck = unitOfWork.ClientRepo.Ophalen(x => x.ClientEmail == Email).SingleOrDefault();
 
-            if (client == null)
+            if (clientCheck == null)
             {
-                foutmelding = "There is no account that has this password and or username";
+                Foutmelding = "There is no account that has this password and or username";
                 return;
             }
 
-            if (Client.ClientEmail == client.ClientEmail)
+            if (Email == clientCheck.ClientEmail && Password == clientCheck.Password)
             {
-                if (Client.Password == client.Password)
+                if (clientCheck.IsAdmin == false)
                 {
-                    if (client.IsAdmin == false)
-                    {
-                        OpenAccountWindow();
-                        RefreshData();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"You are now logged in As ADMIN", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                        openAdminWindow();
-                        RefreshData();
-                    }
+                    Session.SelectedItemId = clientCheck.ClientID;
+                    OpenAccountWindow();
                 }
                 else
                 {
-                    foutmelding = "Email or password doesn't match";
+                    MessageBox.Show($"You are now logged in As ADMIN", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    openAdminWindow();
                 }
             }
             else
             {
-                foutmelding = "Email or password doesn't match";
+                Foutmelding = "Email or password doesn't match";
             }
         }
 
@@ -115,11 +95,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.AdminView adminView = new View.AdminView();
             adminView.DataContext = adminViewModel;
             adminView.Show();
-        }
-
-        public void RefreshData()
-        {
-            //Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
         }
 
         public void Dispose()

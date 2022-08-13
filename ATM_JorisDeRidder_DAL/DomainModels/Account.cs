@@ -12,6 +12,7 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
     [Table("Accounts")]
     public class Account : Basisklasse
     {
+        [Key]
         public int AccountID { get; set; }
 
         [Required]
@@ -20,15 +21,18 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
         [Required]
         public int AccountAmount { get; set; }
 
-        public int BalanceID { get; set; }
+        [Required]
         public int TransactionID { get; set; }
+
+        [Required]
         public int ClientID { get; set; }
 
+        [ForeignKey("ClientID")]
         public Client Client { get; set; }
-        public Balance Balance { get; set; }
-        public Transaction Transaction { get; set; }
-        public ICollection<CardAccount> CardAccounts { get; set; }
 
-        //.select -> terug navigeren naar ...
+        [ForeignKey("TransactionID")]
+        public Transaction Transaction { get; set; }
+
+        public ICollection<CardAccount> CardAccounts { get; set; }
     }
 }

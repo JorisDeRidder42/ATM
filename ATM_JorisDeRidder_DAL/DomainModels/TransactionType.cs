@@ -12,6 +12,7 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
     [Table("TransactionTypes")]
     public class TransactionType : Basisklasse
     {
+        [Key]
         public int TransActionTypeID { get; set; }
 
         [Required]

@@ -68,7 +68,6 @@
     <Compile Include="Data\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Data\UnitOfWork\UnitOfWork.cs" />
     <Compile Include="DomainModels\Account.cs" />
-    <Compile Include="DomainModels\Balance.cs" />
     <Compile Include="DomainModels\Card.cs" />
     <Compile Include="DomainModels\CardType.cs" />
     <Compile Include="DomainModels\Client.cs" />
@@ -78,6 +77,14 @@
     <Compile Include="Migrations\202208111916182_InitialCreate.cs" />
     <Compile Include="Migrations\202208111916182_InitialCreate.designer.cs">
       <DependentUpon>202208111916182_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208131810049_FixDB.cs" />
+    <Compile Include="Migrations\202208131810049_FixDB.designer.cs">
+      <DependentUpon>202208131810049_FixDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208132025280_removebalance.cs" />
+    <Compile Include="Migrations\202208132025280_removebalance.designer.cs">
+      <DependentUpon>202208132025280_removebalance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +96,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202208111916182_InitialCreate.resx">
       <DependentUpon>202208111916182_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208131810049_FixDB.resx">
+      <DependentUpon>202208131810049_FixDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208132025280_removebalance.resx">
+      <DependentUpon>202208132025280_removebalance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

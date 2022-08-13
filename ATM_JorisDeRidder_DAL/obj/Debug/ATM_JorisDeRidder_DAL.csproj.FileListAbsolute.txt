@@ -28,6 +28,8 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\Mat
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.AssemblyReference.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.InitialCreate.resources
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.FixDB.resources
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.Migrations.removebalance.resources
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.GenerateResource.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.CoreCompileInputs.cache
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_DAL\obj\Debug\ATM_JorisDeRidder_DAL.csproj.Fody.CopyLocal.cache

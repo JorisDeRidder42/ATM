@@ -32,6 +32,14 @@
         </Grid.RowDefinitions>
         <userControl:FooterBack Grid.Row="3" Grid.ColumnSpan="5" />
         <userControl:Header Grid.Row="0" Grid.ColumnSpan="4" />
+        <DataGrid x:Name="datagridClient" AutoGenerateColumns="True" Grid.Row="0" Grid.Column="0"
+                  ItemsSource="{Binding Accounts}"
+                  SelectedItem="{Binding SelectedAccount}" Margin="5"
+                  IsReadOnly="true"
+                  Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel  Grid.ColumnSpan="2" Grid.Row="1" Margin="20" Grid.Column="1">
             <Label Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select your account</Label>
         </StackPanel>

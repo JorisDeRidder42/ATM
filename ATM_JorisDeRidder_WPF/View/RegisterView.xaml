@@ -33,23 +33,23 @@
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold">Register</Label>
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
             <Label x:Name="lblName" Foreground="White">Name</Label>
-            <TextBox x:Name="txtName" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.ClientName}" />
+            <TextBox x:Name="txtName" Foreground="Black" Background="White" Padding="10" Text="{Binding ClientName}" />
             <Label x:Name="lblCEmail" Foreground="White">Email</Label>
-            <TextBox x:Name="txtCCmail" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.ClientEmail}" />
+            <TextBox x:Name="txtCCmail" Foreground="Black" Background="White" Padding="10" Text="{Binding ClientEmail}" />
             <Label x:Name="lblPassword" Foreground="White">Password</Label>
-            <TextBox x:Name="txtPassword" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Password}" />
+            <TextBox x:Name="txtPassword" Foreground="Black" Background="White" Padding="10" Text="{Binding Password}" />
             <Label x:Name="lblCPassword" Foreground="White">Confirm Password</Label>
-            <TextBox x:Name="txtCPassword" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.ConfirmPassword}" />
+            <TextBox x:Name="txtCPassword" Foreground="Black" Background="White" Padding="10" Text="{Binding ConfirmPassword}" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="5">
             <Label x:Name="lblCountry" Foreground="White">Country</Label>
-            <TextBox x:Name="txtcountry" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Country}" />
+            <TextBox x:Name="txtcountry" Foreground="Black" Background="White" Padding="10" Text="{Binding Country}" />
 
             <Label x:Name="lblCity" Foreground="White">City and Street</Label>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="txtCity" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.City}" Width="90" />
-                <TextBox x:Name="txtStreet" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.Street}" Width="90" Margin="10,0,0,0" />
+                <TextBox x:Name="txtCity" Foreground="Black" Background="White" Padding="10" Text="{Binding City}" Width="90" />
+                <TextBox x:Name="txtStreet" Foreground="Black" Background="White" Padding="10" Text="{Binding Street}" Width="90" Margin="10,0,0,0" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -57,16 +57,16 @@
                 <Label x:Name="lblZip" Foreground="White">Zipcode</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="txtnr" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.HouseNumber}" Width="50" />
-                <TextBox x:Name="txtZip" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.ZipCode}" Width="130" Height="40" Margin="10,0,0,0" />
+                <TextBox x:Name="txtnr" Foreground="Black" Background="White" Padding="10" Text="{Binding HouseNumber}" Width="50" />
+                <TextBox x:Name="txtZip" Foreground="Black" Background="White" Padding="10" Text="{Binding ZipCode}" Width="130" Height="40" Margin="10,0,0,0" />
             </StackPanel>
 
             <Label x:Name="lblDob" Foreground="White">Day Of Birth</Label>
-            <DatePicker x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" Text="{Binding Client.BirthDate}" />
+            <DatePicker x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" Text="{Binding BirthDate}" />
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button x:Name="lblRegister" Width="182" Command="{Binding}" CommandParameter="Register">Register</Button>
-            <Label Content="{Binding foutmelding}" Foreground="Red" FontSize="10" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
+            <Label Content="{Binding Foutmelding}" Foreground="Red" FontSize="10" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
         </StackPanel>
 
         <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="4" />

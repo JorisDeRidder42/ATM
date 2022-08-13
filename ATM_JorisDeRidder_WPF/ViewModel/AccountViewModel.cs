@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using ATM_JorisDeRidder_DAL;
 using System.Windows;
 using System.Linq;
+using ATM_JorisDeRidder_Model;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
@@ -34,7 +35,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public AccountViewModel()
         {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientID == Session.SelectedItemId));
         }
 
         private void AccountSelecteren()

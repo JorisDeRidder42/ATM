@@ -12,6 +12,7 @@ namespace ATM_JorisDeRidder_DAL.DomainModels
     [Table("Clients")]
     public class Client : Basisklasse
     {
+        [Key]
         public int ClientID { get; set; }
 
         [Required]

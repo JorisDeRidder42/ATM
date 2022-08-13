@@ -21,6 +21,5 @@ namespace ATM_JorisDeRidder_DAL.Data
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<CardAccount> CardAccounts { get; set; }
-        public DbSet<Balance> Balances { get; set; }
     }
 }

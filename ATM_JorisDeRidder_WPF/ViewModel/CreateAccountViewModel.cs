@@ -1,6 +1,7 @@
 ﻿using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
 using ATM_JorisDeRidder_DAL.DomainModels;
+using ATM_JorisDeRidder_Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,28 +15,16 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class CreateAccountViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public ICollection<Account> Accounts { get; set; }
-        public Account Account { get; set; }
-        public Client Client { get; set; }
-        public Account SelectedAccount { get; set; }
+        public Collection<Account> Accounts { get; set; }
 
         public string AccountName { get; set; }
+
+        public int ClientID { get; set; }
+        public int TransactionID { get; set; }
         public int AccountAmount { get; set; }
 
-        public int AccountID { get; set; }
-
-        public string? foutmelding { get; set; }
+        public string? Foutmelding { get; set; }
         public override string this[string columnName] => "";
-
-        public CreateAccountViewModel(int? accountID = null)
-        {
-            if (AccountID != null)
-            {
-                //Client = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(x => x.ClientAccounts.Select(y => y.Account))).SingleOrDefault();
-            }
-            //select enkelvoud
-            //x => x.benaming  voor meervoud
-        }
 
         public override bool CanExecute(object parameter)
         {
@@ -51,17 +40,28 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
         }
 
+        public CreateAccountViewModel()
+        {
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientID == Session.SelectedItemId).Where(y => y.TransactionID == Session.SelectedTransactionId));
+        }
+
         private void CreateNewAccount()
         {
-            if (AccountID != null)
+            if (this.IsGeldig())
             {
-                Account = new Account();
-                if (Account.IsGeldig())
+                Account account = new Account()
                 {
-                    unitOfWork.AccountRepo.Toevoegen(Account);
-                    unitOfWork.Save();
+                    AccountName = AccountName,
+                    AccountAmount = AccountAmount,
+                    ClientID = Session.SelectedItemId,
+                    TransactionID = 3,
+                };
+                unitOfWork.AccountRepo.Toevoegen(account);
+                int ok = unitOfWork.Save();
+                if (ok > 0)
+                {
                     RefreshData();
-                    MessageBox.Show("Account added", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Bill added", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
                     OpenActionView();
                 }
             }
@@ -85,7 +85,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void RefreshData()
         {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen());
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(y => y.ClientID == Session.SelectedItemId));
         }
 
         public void Dispose()

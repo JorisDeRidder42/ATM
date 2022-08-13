@@ -1,6 +1,7 @@
 ﻿using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
 using ATM_JorisDeRidder_DAL.DomainModels;
+using ATM_JorisDeRidder_Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +17,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public Client? Client { get; set; }
         public int? ClientID { get; set; }
-        public string? foutmelding { get; set; }
+        public string? Foutmelding { get; set; }
         public string? ClientName { get; set; }
         public string? ClientEmail { get; set; }
         public string? Password { get; set; }
@@ -28,18 +29,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public string? ZipCode { get; set; }
         public bool? IsAdmin { get; set; }
         public string? BirthDate { get; set; }
-
-        public RegisterViewModel(int? clientID = null)
-        {
-            if (clientID != null)
-            {
-                Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == clientID).SingleOrDefault();
-            }
-            else
-            {
-                Client = new Client();
-            }
-        }
 
         public override string this[string columnName]
         {
@@ -65,13 +54,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void Register()
         {
-            var client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Client.ClientID).SingleOrDefault();
+            Client client = new Client();
+            var clientCheck = unitOfWork.ClientRepo.Ophalen().SingleOrDefault();
 
-            if (ClientID == null || client == null)
+            if (clientCheck == null)
             {
-                if (Client.Password == client.Password)
+                if (client.Password == clientCheck.Password)
                 {
-                    unitOfWork.ClientRepo.Toevoegen(Client);
+                    unitOfWork.ClientRepo.Toevoegen(client);
                     unitOfWork.Save();
                     RefreshData();
 
@@ -80,12 +70,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 }
                 else
                 {
-                    foutmelding = "Please fill in the form";
+                    Foutmelding = "Please fill in the form";
                 }
             }
             else
             {
-                foutmelding = "This account already exists";
+                Foutmelding = "This account already exists";
             }
         }
 
@@ -93,6 +83,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             LoginViewModel viewModel = new LoginViewModel();
             View.LoginView view = new View.LoginView();
+            Session.ClosePreviousWindow(view);
             view.DataContext = viewModel;
             view.Show();
         }
@@ -101,15 +92,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             LoginViewModel lviewModel = new LoginViewModel();
             View.LoginView lview = new View.LoginView();
+            Session.ClosePreviousWindow(lview);
             lview.DataContext = lviewModel;
             lview.Show();
-            View.RegisterView registerView = new View.RegisterView();
-            registerView.Close();
         }
 
         private void RefreshData()
         {
-            //Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+            Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
         }
 
         public void Dispose()

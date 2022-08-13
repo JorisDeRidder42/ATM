@@ -40,7 +40,6 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\ActionView.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\AdminView.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\BalanceView.g.cs
-C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\CashView.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\CreateAccountView.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\DepositView.g.cs
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\HomeView.g.cs
@@ -68,8 +67,10 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_DAL.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_Model.dll
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_DAL.pdb
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_DAL.dll.config
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\bin\Debug\net6.0-windows\ATM_JorisDeRidder_Model.pdb
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\App.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\userControls\Footer.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\userControls\FooterBack.baml
@@ -78,7 +79,6 @@ C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\ActionView.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\AdminView.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\BalanceView.baml
-C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\CashView.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\CreateAccountView.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\DepositView.baml
 C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_WPF\obj\Debug\net6.0-windows\View\HomeView.baml

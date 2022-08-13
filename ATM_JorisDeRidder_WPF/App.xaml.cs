@@ -1,4 +1,5 @@
 ﻿using ATM_JorisDeRidder_WPF.ViewModel;
+using ATM_JorisDeRidder_Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,6 +19,7 @@ namespace ATM_JorisDeRidder_WPF
         {
             HomeViewModel HviewModel = new HomeViewModel();
             View.HomeView hview = new View.HomeView();
+            Session.ClosePreviousWindow(hview);
             hview.DataContext = HviewModel;
             hview.Show();
         }

@@ -17,7 +17,6 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
         private IRepository<CardType> _cardtypeRepo;
         private IRepository<TransactionType> _transactiontypeRepo;
         private IRepository<CardAccount> _cardAccountRepo;
-        private IRepository<Balance> _balanceRepo;
 
         public UnitOfWork(ATM_JorisDeRidderEntities atm_JorisDeRidderEntities)
         {
@@ -107,18 +106,6 @@ namespace ATM_JorisDeRidder_DAL.Data.UnitOfWork
                     _transactiontypeRepo = new Repository<TransactionType>(this.ATM_JorisDeRidderEntities);
                 }
                 return _transactiontypeRepo;
-            }
-        }
-
-        public IRepository<Balance> BalanceRepo
-        {
-            get
-            {
-                if (_balanceRepo == null)
-                {
-                    _balanceRepo = new Repository<Balance>(this.ATM_JorisDeRidderEntities);
-                }
-                return _balanceRepo;
             }
         }
 

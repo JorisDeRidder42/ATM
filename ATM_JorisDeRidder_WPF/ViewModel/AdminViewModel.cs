@@ -16,7 +16,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public Client Client { get; set; }
         public Collection<Client> Clients { get; set; }
-        public Client selectedClients { get; set; }
+        public Client SelectedClient { get; set; }
         public override string this[string columnName] => "";
 
         public AdminViewModel(int? clientID = null)
@@ -34,6 +34,36 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             switch (parameter.ToString())
             {
                 case "Back": Back(); break;
+                case "Edit": ChangeClient(); break;
+                case "Delete": RemoveClient(); break;
+            }
+        }
+
+        private void RemoveClient()
+        {
+            if (this.IsGeldig())
+            {
+                unitOfWork.ClientRepo.Verwijderen(SelectedClient);
+                unitOfWork.Save();
+                Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+            }
+            else
+            {
+                MessageBox.Show(Error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ChangeClient()
+        {
+            if (this.IsGeldig())
+            {
+                unitOfWork.ClientRepo.Aanpassen(SelectedClient);
+                unitOfWork.Save();
+                Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
+            }
+            else
+            {
+                MessageBox.Show(Error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

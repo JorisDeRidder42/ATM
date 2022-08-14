@@ -1,7 +1,10 @@
 ﻿using ATM_JorisDeRidder_DAL.Data;
 using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
+using ATM_JorisDeRidder_Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +17,26 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public override string this[string columnName] => "";
 
+        private Account _account;
+
+        public Account Account
+        {
+            get { return _account; }
+            set
+            {
+                _account = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public override bool CanExecute(object parameter)
         {
             return true;
+        }
+
+        public BalanceViewModel()
+        {
+            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).FirstOrDefault();
         }
 
         public void Dispose()

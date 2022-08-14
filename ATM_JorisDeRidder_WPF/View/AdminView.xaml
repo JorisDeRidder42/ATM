@@ -28,16 +28,37 @@
             <RowDefinition Height="auto" />
             <RowDefinition />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <userControl:Header Grid.ColumnSpan="7" Grid.Row="0" />
-        <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="3" />
+        <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="7" />
+
         <DataGrid x:Name="datagridClient" AutoGenerateColumns="True" Grid.Row="1" Grid.Column="0"
                   ItemsSource="{Binding Clients}"
                   SelectedItem="{Binding SelectedClient}" Margin="5"
                   IsReadOnly="true"
-                  Grid.ColumnSpan="4" Grid.RowSpan="2">
+                  Grid.ColumnSpan="4" Grid.RowSpan="2" Background="#FF0A2C37">
             <DataGrid.Columns>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBox Margin="5" x:Name="txtClientName" Text="{Binding SelectedClient.ClientName}" Grid.Row="3" Grid.Column="0" />
+        <TextBox Margin="5" x:Name="txtEmail" Text="{Binding SelectedClient.ClientEmail}" Grid.Row="3" Grid.Column="1" />
+        <TextBox Margin="5" x:Name="txtPassword" Text="{Binding SelectedClient.Password}" Grid.Row="3" Grid.Column="2" />
+        <TextBox Margin="5" x:Name="txtConfirmPassword" Text="{Binding SelectedClient.ConfirmPassword}" Grid.Row="3" Grid.Column="3" />
+
+        <TextBox Margin="5" x:Name="txtCountry" Text="{Binding SelectedClient.Country}" Grid.Row="4" Grid.Column="0" />
+        <TextBox Margin="5" x:Name="txtCity" Text="{Binding SelectedClient.City}" Grid.Row="4" Grid.Column="1" />
+        <TextBox Margin="5" x:Name="txtStreet" Text="{Binding SelectedClient.Street}" Grid.Row="4" Grid.Column="2" />
+        <TextBox Margin="5" x:Name="txtHouseNr" Text="{Binding SelectedClient.HouseNumber}" Grid.Row="4" Grid.Column="3" />
+
+        <TextBox Margin="6" x:Name="txtZipCode" Text="{Binding SelectedClient.ZipCode}" Grid.Row="5" Grid.Column="0" />
+        <TextBox Margin="6" x:Name="txtIsAdmin" Text="{Binding SelectedClient.IsAdmin}" Grid.Row="5" Grid.Column="1" />
+        <TextBox Margin="6" x:Name="txtBirthDate" Text="{Binding SelectedClient.BirthDate}" Grid.Row="5" Grid.Column="2" />
+
+        <Button Margin="10" Command="{Binding}" CommandParameter="Edit" Grid.Row="6" Grid.Column="0">Edit</Button>
+        <Button Margin="10" Command="{Binding}" CommandParameter="Delete" Background="#FFF40303"  Foreground="White" BorderBrush="#FFF40303" Grid.Row="6" Grid.Column="1">Delete</Button>
     </Grid>
 </Window>

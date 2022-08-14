@@ -36,7 +36,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public BalanceViewModel()
         {
-            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).FirstOrDefault();
+            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
         }
 
         public void Dispose()

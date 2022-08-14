@@ -16,9 +16,6 @@
     <Compile Update="userControls\Header.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\AccountView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\ActionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,7 +25,13 @@
     <Compile Update="View\BalanceView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CardView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CreateAccountView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateCardView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DepositView.xaml.cs">
@@ -57,9 +60,6 @@
     <Page Update="userControls\Header.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\AccountView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="View\ActionView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -69,7 +69,13 @@
     <Page Update="View\BalanceView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\CardView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\CreateAccountView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CreateCardView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DepositView.xaml">

@@ -9,19 +9,9 @@ namespace ATM_JorisDeRidder_Model
 {
     public static class Session
     {
-        public static int SelectedItemId;
+        public static int SelectedClientId;
         public static int SelectedAccountId;
         public static int SelectedTransactionId;
-
-        public static Window window;
-
-        public static void ClosePreviousWindow(Window view)
-        {
-            if (window != null)
-            {
-                window.Close();
-            }
-            window = view;
-        }
+        public static int SelectedCardId;
     }
 }

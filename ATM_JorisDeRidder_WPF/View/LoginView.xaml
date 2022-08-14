@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
+        TextElement.FontFamily="Poppins"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
@@ -36,7 +37,7 @@
         <userControl:Header Grid.ColumnSpan="3" Grid.Row="0" />
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" VerticalAlignment="Center">
             <Label x:Name="lblName" Foreground="White">Email</Label>
-            <TextBox Foreground="Black" Background="White" Padding="10" Text="{Binding Email}" FontFamily="Poppins" />
+            <TextBox Foreground="Black" Background="White" Padding="10" Text="{Binding Email}" />
             <Label x:Name="lblPassword" Foreground="White">Password</Label>
             <TextBox  Foreground="Black" Background="White" Padding="10" Text="{Binding Password}" FontFamily="Password" />
 

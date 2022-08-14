@@ -34,6 +34,7 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             <Label x:Name="lblAction" Foreground="#fff" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Select what you want to do</Label>
         </StackPanel>
+
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">
             <Label FontSize="15" Content="Amount:" />
             <Label FontSize="15" Content="{Binding Account.AccountAmount}" />
@@ -48,6 +49,6 @@
             <Button Margin="10" Command="{Binding}" CommandParameter="Balance">Balance</Button>
         </StackPanel>
         <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontWeight="Bold" Background="Transparent" Foreground="White" BorderBrush="Transparent" Command="{Binding}" CommandParameter="Logout" VerticalAlignment="Center">Logout</Button>
-        <Border Grid.ColumnSpan="4" Grid.Row="3" Background="#4FC5FF" Height="8" VerticalAlignment="Bottom"></Border>
+        <Border Grid.ColumnSpan="4" Grid.Row="3" Background="#4FC5FF" Height="8" VerticalAlignment="Bottom" />
     </Grid>
 </Window>

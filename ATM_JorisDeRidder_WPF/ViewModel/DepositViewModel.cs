@@ -48,7 +48,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public DepositViewModel()
         {
-            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).FirstOrDefault();
+            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
         }
 
         public override bool CanExecute(object parameter)
@@ -85,7 +85,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void RefreshData()
         {
-            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).FirstOrDefault();
+            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
         }
 
         private void Back()

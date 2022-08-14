@@ -16,6 +16,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public Client? Client { get; set; }
+        public ICollection<Client> Clients { get; set; }
         public int? ClientID { get; set; }
         public string? Foutmelding { get; set; }
         public string? ClientName { get; set; }
@@ -34,6 +35,43 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             get
             {
+                if (columnName == "Password" && string.IsNullOrWhiteSpace(Password))
+                {
+                    return "Password is required! ";
+                }
+                if (columnName == "ClientName" && string.IsNullOrWhiteSpace(ClientName))
+                {
+                    return "ClientName is required! ";
+                }
+                if (columnName == "ClientEmail" && string.IsNullOrWhiteSpace(ClientEmail))
+                {
+                    return "Email is required! ";
+                }
+                if (columnName == "ConfirmPassword" && string.IsNullOrWhiteSpace(ConfirmPassword) && columnName == "ConfirmPassword" && ConfirmPassword == Password)
+                {
+                    return "Confirmpassword is required or needs to be the same ";
+                }
+                if (columnName == "Country" && string.IsNullOrWhiteSpace(Country))
+                {
+                    return "Country is required! ";
+                }
+                if (columnName == "City" && string.IsNullOrWhiteSpace(City))
+                {
+                    return "City is required! ";
+                }
+                if (columnName == "Street" && string.IsNullOrWhiteSpace(Street))
+                {
+                    return "Street is required! ";
+                }
+                if (columnName == "HouseNumber" && string.IsNullOrWhiteSpace(HouseNumber))
+                {
+                    return "Housenumber is required! ";
+                }
+                if (columnName == "ZipCode" && string.IsNullOrWhiteSpace(ZipCode))
+                {
+                    return "ZipCode is required! ";
+                }
+
                 return "";
             }
         }
@@ -54,12 +92,25 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void Register()
         {
-            Client client = new Client();
-            var clientCheck = unitOfWork.ClientRepo.Ophalen().SingleOrDefault();
-
-            if (clientCheck == null)
+            if (this.IsGeldig())
             {
-                if (client.Password == clientCheck.Password)
+                Client client = new Client()
+                {
+                    ClientName = ClientName,
+                    ClientEmail = ClientEmail,
+                    Password = Password,
+                    ConfirmPassword = ConfirmPassword,
+                    Country = Country,
+                    City = City,
+                    Street = Street,
+                    HouseNumber = HouseNumber,
+                    ZipCode = ZipCode,
+                    IsAdmin = false,
+                    BirthDate = BirthDate
+                };
+                var clientCheck = unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Session.SelectedClientId).SingleOrDefault();
+
+                if (clientCheck == null)
                 {
                     unitOfWork.ClientRepo.Toevoegen(client);
                     unitOfWork.Save();
@@ -70,12 +121,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 }
                 else
                 {
-                    Foutmelding = "Please fill in the form";
+                    Foutmelding = "This account already exists";
                 }
             }
             else
             {
-                Foutmelding = "This account already exists";
+                Foutmelding = Error;
             }
         }
 
@@ -83,7 +134,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             LoginViewModel viewModel = new LoginViewModel();
             View.LoginView view = new View.LoginView();
-            Session.ClosePreviousWindow(view);
             view.DataContext = viewModel;
             view.Show();
         }
@@ -92,14 +142,13 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             LoginViewModel lviewModel = new LoginViewModel();
             View.LoginView lview = new View.LoginView();
-            Session.ClosePreviousWindow(lview);
             lview.DataContext = lviewModel;
             lview.Show();
         }
 
         private void RefreshData()
         {
-            Client = unitOfWork.ClientRepo.Ophalen(c => c.ClientID).SingleOrDefault();
+            Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen(c => c.ClientID == Session.SelectedClientId));
         }
 
         public void Dispose()

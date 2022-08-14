@@ -58,7 +58,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             {
                 if (clientCheck.IsAdmin == false)
                 {
-                    Session.SelectedItemId = clientCheck.ClientID;
+                    Session.SelectedClientId = clientCheck.ClientID;
                     OpenAccountWindow();
                 }
                 else
@@ -83,10 +83,15 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public void OpenAccountWindow()
         {
-            AccountViewModel aViewModel = new AccountViewModel();
-            View.AccountView aView = new View.AccountView();
-            aView.DataContext = aViewModel;
-            aView.Show();
+            //AccountViewModel aViewModel = new AccountViewModel();
+            //View.AccountView aView = new View.AccountView();
+            //aView.DataContext = aViewModel;
+            //aView.Show();
+
+            CardViewModel cardViewModel = new CardViewModel();
+            View.CardView cardView = new View.CardView();
+            cardView.DataContext = cardViewModel;
+            cardView.Show();
         }
 
         public void openAdminWindow()

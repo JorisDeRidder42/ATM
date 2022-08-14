@@ -15,7 +15,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     public class CreateAccountViewModel : BasisViewModel, IDisposable
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
-        public Collection<Account> Accounts { get; set; }
+        public ObservableCollection<Account> Accounts { get; set; }
 
         public string AccountName { get; set; }
 
@@ -42,7 +42,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         public CreateAccountViewModel()
         {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientID == Session.SelectedItemId).Where(y => y.TransactionID == Session.SelectedTransactionId));
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientID == Session.SelectedClientId).Where(y => y.TransactionID == Session.SelectedTransactionId));
         }
 
         private void CreateNewAccount()
@@ -53,7 +53,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 {
                     AccountName = AccountName,
                     AccountAmount = AccountAmount,
-                    ClientID = Session.SelectedItemId,
+                    ClientID = Session.SelectedClientId,
                     TransactionID = 3,
                 };
                 unitOfWork.AccountRepo.Toevoegen(account);
@@ -62,7 +62,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 {
                     RefreshData();
                     MessageBox.Show("Bill added", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
-                    OpenActionView();
+                    OpenCardView();
                 }
             }
         }
@@ -75,17 +75,17 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             lView.Show();
         }
 
-        public void OpenActionView()
+        public void OpenCardView()
         {
-            ActionViewModel actionViewModel = new ActionViewModel();
-            View.ActionView actionView = new View.ActionView();
-            actionView.DataContext = actionViewModel;
-            actionView.Show();
+            CardViewModel cardViewModel = new CardViewModel();
+            View.CardView cardView = new View.CardView();
+            cardView.DataContext = cardViewModel;
+            cardView.Show();
         }
 
         private void RefreshData()
         {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(y => y.ClientID == Session.SelectedItemId));
+            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(y => y.ClientID == Session.SelectedClientId));
         }
 
         public void Dispose()

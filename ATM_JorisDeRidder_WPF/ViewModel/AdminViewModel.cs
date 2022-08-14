@@ -15,11 +15,12 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public Client Client { get; set; }
-        public Collection<Client> Clients { get; set; }
+        public ObservableCollection<Client> Clients { get; set; }
         public Client SelectedClient { get; set; }
+        public string Foutmelding { get; set; }
         public override string this[string columnName] => "";
 
-        public AdminViewModel(int? clientID = null)
+        public AdminViewModel()
         {
             Clients = new ObservableCollection<Client>(unitOfWork.ClientRepo.Ophalen());
         }
@@ -49,7 +50,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
             else
             {
-                MessageBox.Show(Error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Foutmelding = Error;
             }
         }
 
@@ -63,7 +64,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
             else
             {
-                MessageBox.Show(Error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Foutmelding = Error;
             }
         }
 

@@ -16,15 +16,37 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
     {
         private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
         public int ClientID { get; set; }
-        public Collection<Account> Accounts { get; set; }
+
+        private Account _account;
+
+        public Account Account
+        {
+            get { return _account; }
+            set
+            {
+                _account = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public Account SelectedAccount { get; set; }
 
-        public override string this[string columnName] => "";
+        public override string this[string columnName]
+        {
+            get
+            {
+                if (columnName == "SelectedAccount" && (SelectedAccount == null))
+                {
+                    return "Select an account" + Environment.NewLine;
+                }
+
+                return "";
+            }
+        }
 
         public ActionViewModel()
         {
-            Accounts = new ObservableCollection<Account>(unitOfWork.AccountRepo.Ophalen(x => x.ClientID == Session.SelectedItemId));
+            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
         }
 
         public override bool CanExecute(object parameter)
@@ -46,8 +68,21 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
 
         private void DeleteAccount()
         {
-            SelectedAccount = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
-            unitOfWork.AccountRepo.Verwijderen(SelectedAccount);
+            if (this.IsGeldig())
+            {
+                unitOfWork.ClientRepo.Verwijderen(SelectedAccount);
+                unitOfWork.Save();
+                RefreshData();
+            }
+            else
+            {
+                MessageBox.Show(Error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void RefreshData()
+        {
+            Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
         }
 
         private void Balance()

@@ -40,7 +40,7 @@
                   ItemsSource="{Binding Clients}"
                   SelectedItem="{Binding SelectedClient}" Margin="5"
                   IsReadOnly="true"
-                  Grid.ColumnSpan="4" Grid.RowSpan="2" Background="#FF0A2C37">
+                  Grid.ColumnSpan="4" Grid.RowSpan="2" Background="#111C26">
             <DataGrid.Columns>
             </DataGrid.Columns>
         </DataGrid>

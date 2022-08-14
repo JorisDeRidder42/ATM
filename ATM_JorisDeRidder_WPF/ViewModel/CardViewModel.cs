@@ -99,7 +99,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             if (SelectedCard != null && SelectedAccount != null)
             {
-                Session.SelectedClientId = SelectedAccount.AccountID;
+                Session.SelectedAccountId = SelectedAccount.AccountID;
 
                 ActionViewModel actionViewModel = new ActionViewModel();
                 View.ActionView actionView = new View.ActionView();
@@ -108,7 +108,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
             else
             {
-                Foutmelding = Error;
+                MessageBox.Show("Please select a Card and or account", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

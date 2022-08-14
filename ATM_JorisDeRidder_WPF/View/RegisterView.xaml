@@ -63,7 +63,7 @@
             </StackPanel>
 
             <Label x:Name="lblDob" Foreground="White">Day Of Birth</Label>
-            <DatePicker x:Name="txtDOB" Foreground="White" Background="White" Padding="10" Text="{Binding BirthDate}" />
+            <DatePicker x:Name="txtDOB" Foreground="Black" Background="White" Padding="10" Text="{Binding BirthDate}" />
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button x:Name="lblRegister" Width="182" Command="{Binding}" CommandParameter="Register">Register</Button>

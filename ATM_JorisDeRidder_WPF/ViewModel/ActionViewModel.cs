@@ -35,11 +35,6 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             get
             {
-                if (columnName == "SelectedAccount" && (SelectedAccount == null))
-                {
-                    return "Select an account" + Environment.NewLine;
-                }
-
                 return "";
             }
         }
@@ -70,13 +65,15 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         {
             if (this.IsGeldig())
             {
-                unitOfWork.ClientRepo.Verwijderen(SelectedAccount);
+                Account = unitOfWork.AccountRepo.Ophalen(x => x.AccountID == Session.SelectedAccountId).SingleOrDefault();
+                unitOfWork.AccountRepo.Verwijderen(Account);
                 unitOfWork.Save();
                 RefreshData();
+                BackToCardView();
             }
             else
             {
-                MessageBox.Show(Error, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Something went wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -120,6 +117,14 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
         public void Dispose()
         {
             unitOfWork?.Dispose();
+        }
+
+        public void BackToCardView()
+        {
+            CardViewModel cardViewModel = new CardViewModel();
+            View.CardView CardView = new View.CardView();
+            CardView.DataContext = cardViewModel;
+            CardView.Show();
         }
     }
 }

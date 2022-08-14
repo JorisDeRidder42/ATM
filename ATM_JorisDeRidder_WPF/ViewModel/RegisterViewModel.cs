@@ -47,9 +47,9 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
                 {
                     return "Email is required! ";
                 }
-                if (columnName == "ConfirmPassword" && string.IsNullOrWhiteSpace(ConfirmPassword) && columnName == "ConfirmPassword" && ConfirmPassword == Password)
+                if (columnName == "ConfirmPassword" && ConfirmPassword != Password)
                 {
-                    return "Confirmpassword is required or needs to be the same ";
+                    return "Confirmpassword needs to be the same as password ";
                 }
                 if (columnName == "Country" && string.IsNullOrWhiteSpace(Country))
                 {

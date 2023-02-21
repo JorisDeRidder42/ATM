@@ -9,35 +9,8 @@ using System.Windows.Input;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public abstract class BasisViewModel : IDataErrorInfo, INotifyPropertyChanged, ICommand, IDisposable
+    public abstract class BasisViewModel : IDataErrorInfo, INotifyPropertyChanged, ICommand
     {
-        #region ICommand
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-
-        public abstract bool CanExecute(object parameter);
-
-        public abstract void Execute(object parameter);
-
-        #endregion ICommand
-
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion INotifyPropertyChanged
-
-        #region IDataErrorInfo
-
         public abstract string this[string columnName] { get; }
 
         public string Error
@@ -45,7 +18,7 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             get
             {
                 string foutmeldingen = "";
-                foreach (var item in this.GetType().GetProperties()) //reflection
+                foreach (var item in this.GetType().GetProperties())
                 {
                     string fout = this[item.Name];
                     if (!string.IsNullOrWhiteSpace(fout))
@@ -57,20 +30,26 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             }
         }
 
-        #endregion IDataErrorInfo
-
-        #region hulpmethodes
-
         public bool IsGeldig()
         {
             return string.IsNullOrWhiteSpace(Error);
         }
 
-        public void Dispose()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            throw new NotImplementedException();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion hulpmethodes
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public abstract bool CanExecute(object parameter);
+
+        public abstract void Execute(object parameter);
     }
 }

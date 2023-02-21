@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ATM_JorisDeRidder_DAL.Data;
+using ATM_JorisDeRidder_DAL.Data.UnitOfWork;
+using ATM_JorisDeRidder_DAL.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,17 +10,25 @@ using System.Threading.Tasks;
 
 namespace ATM_JorisDeRidder_WPF.ViewModel
 {
-    public class HomeViewModel : BasisViewModel
+    public class HomeViewModel : BasisViewModel, IDisposable
     {
-        public override string this[string columnName] => throw new NotImplementedException();
+        private IUnitOfWork unitOfWork = new UnitOfWork(new ATM_JorisDeRidderEntities());
+        public override string this[string columnName] => "";
 
         public override bool CanExecute(object parameter)
         {
+            switch (parameter.ToString())
+            {
+                case "Register": return true;
+                case "Login": return true;
+            }
             return true;
         }
 
         public override void Execute(object parameter)
         {
+            //Via parameter kom je te weten op welke knop er gedrukt is,
+            //instelling via CommandParameter in xaml
             switch (parameter.ToString())
             {
                 case "Register": OpenRegisterPage(); break;
@@ -39,6 +50,11 @@ namespace ATM_JorisDeRidder_WPF.ViewModel
             View.RegisterView rview = new View.RegisterView();
             rview.DataContext = registerViewModel;
             rview.Show();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork?.Dispose();
         }
     }
 }

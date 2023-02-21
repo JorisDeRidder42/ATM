@@ -1,4 +1,5 @@
 ﻿using ATM_JorisDeRidder_WPF.ViewModel;
+using ATM_JorisDeRidder_Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -1,0 +1,46 @@
+﻿<Window x:Class="ATM_JorisDeRidder_WPF.View.BalanceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Foreground="White"
+        Background="#111C26"
+        FontFamily="Poppins"
+        VerticalAlignment="Center"
+        Title="BalanceView" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <userControl:Header Grid.ColumnSpan="7" Grid.Row="0" />
+        <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="3" />
+
+        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+            <Label x:Name="lblClientID" FontSize="25">ClientID:</Label>
+            <Label x:Name="lblClientName" FontSize="25">Client name:</Label>
+            <Label x:Name="lblBalance" FontSize="25">Your balance:</Label>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
+            <Label x:Name="lblID" Foreground="#fff" FontSize="25" Content="{Binding Account.ClientID}" />
+            <Label x:Name="lblCName" Foreground="#fff" FontSize="25" Content="{Binding Account.AccountName}" />
+            <Label x:Name="lblCBalance" Foreground="#fff" FontSize="25" Content="{Binding Account.AccountAmount}" />
+        </StackPanel>
+    </Grid>
+</Window>

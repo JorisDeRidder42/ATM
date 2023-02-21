@@ -1,0 +1,6 @@
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_Model\bin\Debug\ATM_JorisDeRidder_Model.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_Model\bin\Debug\ATM_JorisDeRidder_Model.pdb
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_Model\obj\Debug\ATM_JorisDeRidder_Model.csproj.AssemblyReference.cache
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_Model\obj\Debug\ATM_JorisDeRidder_Model.csproj.CoreCompileInputs.cache
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_Model\obj\Debug\ATM_JorisDeRidder_Model.dll
+C:\Users\joris\Bureaublad\ThomasMore\ATM\ATM\ATM_JorisDeRidder_Model\obj\Debug\ATM_JorisDeRidder_Model.pdb

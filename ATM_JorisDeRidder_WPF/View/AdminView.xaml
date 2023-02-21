@@ -1,0 +1,64 @@
+﻿<Window x:Class="ATM_JorisDeRidder_WPF.View.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ATM_JorisDeRidder_WPF.View"
+        xmlns:userControl="clr-namespace:ATM_JorisDeRidder_WPF.userControls"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Foreground="White"
+        Background="#111C26"
+        FontFamily="Poppins"
+        VerticalAlignment="Center"
+        Title="AdminView" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <userControl:Header Grid.ColumnSpan="7" Grid.Row="0" />
+        <userControl:FooterBack Grid.ColumnSpan="7" Grid.Row="7" />
+
+        <DataGrid x:Name="datagridClient" AutoGenerateColumns="True" Grid.Row="1" Grid.Column="0"
+                  ItemsSource="{Binding Clients}"
+                  SelectedItem="{Binding SelectedClient}" Margin="5"
+                  IsReadOnly="true"
+                  Grid.ColumnSpan="4" Grid.RowSpan="2" Background="#111C26">
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Margin="5" x:Name="txtClientName" Text="{Binding SelectedClient.ClientName}" Grid.Row="3" Grid.Column="0" />
+        <TextBox Margin="5" x:Name="txtEmail" Text="{Binding SelectedClient.ClientEmail}" Grid.Row="3" Grid.Column="1" />
+        <TextBox Margin="5" x:Name="txtPassword" Text="{Binding SelectedClient.Password}" Grid.Row="3" Grid.Column="2" />
+        <TextBox Margin="5" x:Name="txtConfirmPassword" Text="{Binding SelectedClient.ConfirmPassword}" Grid.Row="3" Grid.Column="3" />
+
+        <TextBox Margin="5" x:Name="txtCountry" Text="{Binding SelectedClient.Country}" Grid.Row="4" Grid.Column="0" />
+        <TextBox Margin="5" x:Name="txtCity" Text="{Binding SelectedClient.City}" Grid.Row="4" Grid.Column="1" />
+        <TextBox Margin="5" x:Name="txtStreet" Text="{Binding SelectedClient.Street}" Grid.Row="4" Grid.Column="2" />
+        <TextBox Margin="5" x:Name="txtHouseNr" Text="{Binding SelectedClient.HouseNumber}" Grid.Row="4" Grid.Column="3" />
+
+        <TextBox Margin="6" x:Name="txtZipCode" Text="{Binding SelectedClient.ZipCode}" Grid.Row="5" Grid.Column="0" />
+        <TextBox Margin="6" x:Name="txtIsAdmin" Text="{Binding SelectedClient.IsAdmin}" Grid.Row="5" Grid.Column="1" />
+        <TextBox Margin="6" x:Name="txtBirthDate" Text="{Binding SelectedClient.BirthDate}" Grid.Row="5" Grid.Column="2" />
+
+        <Button Margin="10" Command="{Binding}" CommandParameter="Edit" Grid.Row="6" Grid.Column="0">Edit</Button>
+        <Button Margin="10" Command="{Binding}" CommandParameter="Delete" Background="#FFF40303"  Foreground="White" BorderBrush="#FFF40303" Grid.Row="6" Grid.Column="1">Delete</Button>
+    </Grid>
+</Window>

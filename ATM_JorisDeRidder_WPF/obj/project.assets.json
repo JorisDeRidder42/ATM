@@ -324,6 +324,24 @@
             "rid": "win"
           }
         }
+      },
+      "ATM_JorisDeRidder_DAL/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ATM_JorisDeRidder_DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ATM_JorisDeRidder_DAL.dll": {}
+        }
+      },
+      "ATM_JorisDeRidder_Model/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ATM_JorisDeRidder_Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ATM_JorisDeRidder_Model.dll": {}
+        }
       }
     }
   },
@@ -1172,10 +1190,22 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ATM_JorisDeRidder_DAL/1.0.0": {
+      "type": "project",
+      "path": "../ATM_JorisDeRidder_DAL/ATM_JorisDeRidder_DAL.csproj",
+      "msbuildProject": "../ATM_JorisDeRidder_DAL/ATM_JorisDeRidder_DAL.csproj"
+    },
+    "ATM_JorisDeRidder_Model/1.0.0": {
+      "type": "project",
+      "path": "../ATM_JorisDeRidder_Model/ATM_JorisDeRidder_Model.csproj",
+      "msbuildProject": "../ATM_JorisDeRidder_Model/ATM_JorisDeRidder_Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "ATM_JorisDeRidder_DAL >= 1.0.0",
+      "ATM_JorisDeRidder_Model >= 1.0.0",
       "EntityFramework >= 6.4.4",
       "Fody >= 6.6.3",
       "MaterialDesignColors >= 2.0.6",
@@ -1209,7 +1239,14 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_DAL\\ATM_JorisDeRidder_DAL.csproj": {
+              "projectPath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_DAL\\ATM_JorisDeRidder_DAL.csproj"
+            },
+            "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_Model\\ATM_JorisDeRidder_Model.csproj": {
+              "projectPath": "C:\\Users\\joris\\Bureaublad\\ThomasMore\\ATM\\ATM\\ATM_JorisDeRidder_Model\\ATM_JorisDeRidder_Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -1263,7 +1300,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
